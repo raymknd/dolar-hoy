@@ -4,7 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "bundle": "tsc src/index.ts && npx webpack --config webpack.config.js"
+    "bundle": "tsc src/index.ts && npx webpack --config webpack.config.js",
+    "init": "npm i && npm run bundle"
   },
   "keywords": [],
   "author": "",

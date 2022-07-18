@@ -1,8 +1,6 @@
 # dolar-hoy
  
 
-Quick start
+## Quick start
 
-<code>
-    npm run init
-<code>
+<code>npm run init<code>

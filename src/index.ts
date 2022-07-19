@@ -1,6 +1,7 @@
 import getDate from "./modules/dateHandler";
 import Currency, { Currencies } from "./modules/Currency";
 import { formatter, InputHandler } from "./modules/InputHandler";
+import DataAPI from "./modules/Data";
 
 (function() {
     const x = document.getElementById("js--toggle-theme") || false;
@@ -24,6 +25,7 @@ import { formatter, InputHandler } from "./modules/InputHandler";
 })();
 
 const today = getDate();
+const api = new DataAPI();
 const dateContainer = document.getElementById("js--actual-date") || false;
 if(dateContainer) dateContainer.innerHTML = `${today.day.name}, ${today.day.number} de ${today.month.name} del ${today.year}`;
 
@@ -42,8 +44,7 @@ const secondInput = document.getElementById("js--second-input") as HTMLInputElem
     const l = document.getElementById("js--dolar-loader");
 
     try {
-        const a = await fetch("https://mindicador.cl/api/dolar");
-        const b: Promise<y> = await a.json();
+        const b = api.getDolar();
         window.localStorage.setItem("CURRENCY_DATA-USD", (await b).serie[0].valor.toString());
         window.localStorage.setItem("CURRENCY_DATA-DATE", (await b).serie[0].fecha);
         document.body.classList.add("data-fetched");

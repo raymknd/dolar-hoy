@@ -39,6 +39,28 @@ exports.__esModule = true;
 var dateHandler_1 = require("./modules/dateHandler");
 var Currency_1 = require("./modules/Currency");
 var InputHandler_1 = require("./modules/InputHandler");
+(function () {
+    var x = document.getElementById("js--toggle-theme") || false;
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add("dark-mode");
+    }
+    if (x) {
+        var icon_1 = x.querySelector("span");
+        x.addEventListener("click", function (e) {
+            e.preventDefault();
+            if (document.body.classList.contains("dark-mode")) {
+                document.body.classList.remove("dark-mode");
+                if (icon_1)
+                    icon_1.innerHTML = "dark_mode";
+            }
+            else {
+                document.body.classList.add("dark-mode");
+                if (icon_1)
+                    icon_1.innerHTML = "light_mode";
+            }
+        });
+    }
+})();
 var today = (0, dateHandler_1["default"])();
 var dateContainer = document.getElementById("js--actual-date") || false;
 if (dateContainer)
@@ -47,7 +69,7 @@ var firstInput = document.getElementById("js--first-input");
 var secondInput = document.getElementById("js--second-input");
 (function () {
     return __awaiter(this, void 0, void 0, function () {
-        var l, a_1, b, _a, _b, _c, _d, _e, _f, error_1, USD, PARSED_USD, options, a;
+        var l, a_1, b, _a, _b, _c, _d, _e, _f, error_1, USD, PARSED_USD, options, a, cv;
         return __generator(this, function (_g) {
             switch (_g.label) {
                 case 0:
@@ -106,6 +128,16 @@ var secondInput = document.getElementById("js--second-input");
                         }
                     ];
                     a = new Currency_1["default"](options);
+                    cv = document.getElementById("js--clp-current-value");
+                    if (cv) {
+                        cv.innerHTML = a.calculate({
+                            currencies: {
+                                base: "USD",
+                                toBeConverted: "CLP"
+                            },
+                            value: 1
+                        }, false).toString();
+                    }
                     if (firstInput && secondInput) {
                         firstInput.value = InputHandler_1.formatter.format(PARSED_USD);
                         secondInput.value = "1";

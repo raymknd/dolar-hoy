@@ -9,6 +9,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     color: black;
+    transition: background .2s linear, color .2s linear;
 }
 body.dark-mode {
     background: #181818;

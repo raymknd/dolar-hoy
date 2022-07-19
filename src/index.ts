@@ -2,6 +2,27 @@ import getDate from "./modules/dateHandler";
 import Currency, { Currencies } from "./modules/Currency";
 import { formatter, InputHandler } from "./modules/InputHandler";
 
+(function() {
+    const x = document.getElementById("js--toggle-theme") || false;
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add("dark-mode");
+    }
+    if(x) {
+        const icon = x.querySelector("span");
+        x.addEventListener("click", (e) => {
+            e.preventDefault();
+            if(document.body.classList.contains("dark-mode")) {
+                document.body.classList.remove("dark-mode");
+                if(icon) icon.innerHTML = "dark_mode";
+            }
+            else {
+                document.body.classList.add("dark-mode");
+                if(icon) icon.innerHTML = "light_mode";
+            }
+        })
+    }
+})();
+
 const today = getDate();
 const dateContainer = document.getElementById("js--actual-date") || false;
 if(dateContainer) dateContainer.innerHTML = `${today.day.name}, ${today.day.number} de ${today.month.name} del ${today.year}`;
@@ -66,6 +87,17 @@ const secondInput = document.getElementById("js--second-input") as HTMLInputElem
     ]
 
     const a = new Currency(options);
+
+    const cv = document.getElementById("js--clp-current-value");
+    if(cv) {
+        cv.innerHTML = a.calculate({
+            currencies: {
+                base: "USD",
+                toBeConverted: "CLP"
+            },
+            value: 1
+        }, false).toString();
+    }
 
     if(firstInput && secondInput) {
         firstInput.value = formatter.format(PARSED_USD);

@@ -13,7 +13,7 @@
     margin-bottom: 1.5rem;
 }
 .dolar-exchange-rate_container {
-    padding: 0 0 2rem 0;
+    padding: 0 0 1rem 0;
 }
 .dolar-exchange-rate_swap {
     margin: .8rem auto;
@@ -34,6 +34,7 @@
     justify-content: center;
     align-items: center;
     background: #cf6679;
+    color: white;
     position: fixed;
     top: 0;
     left: 0;
@@ -55,4 +56,27 @@
         font-size: 120%;
         opacity: 70%;
     }
+}
+.dolar-current-value_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto 0 auto;
+}
+.dolar-current-value_currency {
+    text-align: center;
+}
+.dolar-current-value_currency-number {
+    font-size: 25px;
+}
+.dolar-current-value_currency-currency {
+    font-size: 15px;
+    font-weight: 300;
+}
+.dolar-current-value_separator {
+    margin: 0 1rem;
+}
+.dolar-current-value-inner {
+    display: flex;
+    align-items: center;
 }

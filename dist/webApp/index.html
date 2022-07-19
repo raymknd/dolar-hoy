@@ -41,33 +41,37 @@
         <div class="dolar-content_land-date" id="js--actual-date"></div>
         <section class="dolar-ad_container">
             <div class="dolar-ad">
-                320x100
+                sm: 320x100 xl: 728x90
             </div>
             <small class="dolar-ad_disclaimer">Publicidad</small>
         </section>
         <section class="dolar-exchange-rate_container">
             <div class="dolar-exchange-rate_title">Conversión</div>
-            <div class="dolar-input_container" data-currency="CLP">
-                <div class="dolar-input_currency-container">
-                    <img src="static/flag-chile.svg" alt="Currency #1" draggable="false">
-                </div>
-                <div class="dolar-input_input-container">
-                    <input type="text" id="js--first-input">
-                </div>
-                <div class="dolar-input_selected-currency-code">
-                    CLP
-                </div>
-            </div>
-            <div class="dolar-exchange-rate_swap"> <span class="material-symbols-outlined"> swap_vert </span> </div>
-            <div class="dolar-input_container" data-currency="USD">
-                <div class="dolar-input_currency-container">
-                    <img src="static/flag-usa.svg" alt="Currency #1" draggable="false">
-                </div>
-                <div class="dolar-input_input-container">
-                    <input type="text"id="js--second-input">
-                </div>
-                <div class="dolar-input_selected-currency-code">
-                    USD
+            <div class="dolar-exchange-rate_inputs">
+                <div class="dolar-exchange-rate_inputs-inner">
+                    <div class="dolar-input_container" data-currency="CLP">
+                        <div class="dolar-input_currency-container">
+                            <img src="static/flag-chile.svg" alt="Currency #1" draggable="false">
+                        </div>
+                        <div class="dolar-input_input-container">
+                            <input type="text" id="js--first-input">
+                        </div>
+                        <div class="dolar-input_selected-currency-code">
+                            CLP
+                        </div>
+                    </div>
+                    <div class="dolar-exchange-rate_swap"> <span class="material-symbols-outlined"> swap_vert </span> </div>
+                    <div class="dolar-input_container" data-currency="USD">
+                        <div class="dolar-input_currency-container">
+                            <img src="static/flag-usa.svg" alt="Currency #1" draggable="false">
+                        </div>
+                        <div class="dolar-input_input-container">
+                            <input type="text" id="js--second-input">
+                        </div>
+                        <div class="dolar-input_selected-currency-code">
+                            USD
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="dolar-current-value_container">
@@ -82,7 +86,7 @@
                         </span>
                     </div>
                     <div class="dolar-current-value_currency">
-                        <div class="dolar-current-value_currency-number" id="js--clp-current-value"></div>
+                        <div class="dolar-current-value_currency-number" id="js--clp-current-value">###</div>
                         <div class="dolar-current-value_currency-currency">CLP</div>
                     </div>
                 </div>
@@ -90,7 +94,7 @@
         </section>
         <section class="dolar-ad_container">
             <div class="dolar-ad">
-                320x100
+                sm: 320x100 xl: 728x90
             </div>
             <small class="dolar-ad_disclaimer">Publicidad</small>
         </section>

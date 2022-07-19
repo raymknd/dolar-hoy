@@ -80,3 +80,19 @@
     display: flex;
     align-items: center;
 }
+@media only screen and (min-width: 650px) {
+    .dolar-exchange-rate_inputs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    .dolar-exchange-rate_inputs-inner {
+        display: flex;
+        align-items: center;
+    }
+    .dolar-exchange-rate_swap {
+        transform: rotate(90deg);
+        margin: 0 1.5rem;
+    }
+}

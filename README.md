@@ -14,5 +14,7 @@ Currency es la clase encargada de calcular el valor de las divisas para mostrarl
  - f [HTMLInputElement]: Es la primera input y de donde se tomará el valor del usuario.
  - s [HTMLInputElement]: Es la segunda input y es donde se mostrará el resultado de la conversión.
  - a [Class:::Currency]: Clase Currency ya iniciada.
- - r? [number]: Números después de la coma en el resultado de la conversión, si es nulo cae al fallback que es 2.
+ - r? [number]: Números después de la coma en el resultado de la conversión, si es nulo cae al fallback que es 2.<br/>
+### Los valores de la divisa base y se toman de los dataset en la raíz de la input.
+
 

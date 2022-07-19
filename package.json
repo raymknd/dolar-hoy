@@ -16,8 +16,6 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "big.js": "^6.2.1",
-    "currency.js": "^2.0.4",
-    "number-precision": "^1.5.2"
+    "big.js": "^6.2.1"
   }
 }

@@ -23,10 +23,10 @@ export function InputHandler(f: HTMLInputElement, s: HTMLInputElement, a: Curren
     else {
         ClearInvalid(x, y);
 
-        var c = x?.dataset.currency;
-        var d = y?.dataset.currency;
+        let c = x?.dataset.currency;
+        let d = y?.dataset.currency;
 
-        if(!d || !c) throw new Error("No se especificaron las divisas en la raíz de la input. [B0]")
+        if(!d || !c) throw new Error("No se especificaron las divisas en la raíz de la input. [B0]");
 
         c = c.toUpperCase().trim();
         d = d.toUpperCase().trim();

@@ -1,3 +1,4 @@
+import "./html/css/main.scss";
 import getDate from "./modules/dateHandler";
 import Currency, { Currencies } from "./modules/Currency";
 import { formatter, InputHandler } from "./modules/InputHandler";

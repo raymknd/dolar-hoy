@@ -1,0 +1,65 @@
+.dolar-input_container {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin: .8rem auto;
+    background: rgba(0, 0, 0, 0.1);
+    transition: background .3s ease;
+    border-radius: 10px;
+}
+body.dark-mode .dolar-input_container {
+    background: rgba(255, 255, 255, 0.05);
+}
+.dolar-input_container.is-invalid {
+    background: rgba(255, 0, 0, 0.3) !important;
+}
+.dolar-input_currency-container {
+    width: 16.666%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px 0 0 10px;
+    img {
+        height: 26%;
+        user-select: none;
+    }
+}
+body.dark-mode .dolar-input_currency-container {
+    background: rgba(255, 255, 255, 0.1);
+}
+.dolar-input_input-container {
+    height: 100%;
+    width: 65%;
+    input {
+        height: 100%;
+        width: 100%;
+        border: 0;
+        background: none;
+        border-radius: 0;
+        padding: 1rem 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        font-size: 20px;
+    }
+    input:focus-visible {
+        outline: none;
+    }
+}
+.dolar-input_selected-currency-code {
+    line-height: 100%;
+    font-weight: 300;
+    height: 100%;
+    width: 18.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media only screen and (min-width: 700px) {
+    .dolar-input_container {
+        width: 300px;
+        margin: .8rem 0;
+    }
+}

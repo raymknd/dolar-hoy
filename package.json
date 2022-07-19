@@ -6,7 +6,8 @@
   "scripts": {
     "build-dev": "tsc src/index.ts && webpack --config=webpack.config.dev.js",
     "build": "tsc src/index.ts && webpack --config=webpack.config.prod.js",
-    "init": "npm i && npm run bundle"
+    "init": "npm i && npm run bundle",
+    "start": "tsc src/index.ts && webpack-dev-server --config=webpack.config.dev.js --open"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@types/big.js": "^6.1.5",
+    "@webpack-cli/serve": "^1.7.0",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.3.2",
@@ -29,7 +31,7 @@
     "typescript": "4.5.5",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2",
+    "webpack-dev-server": "~3",
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {

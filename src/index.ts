@@ -44,8 +44,6 @@ const secondInput = document.getElementById("js--second-input") as HTMLInputElem
     const l = document.getElementById("js--dolar-loader");
 
     try {
-        // const a = await fetch("https://mindicador.cl/api/dolar");
-        // const b: Promise<y> = await a.json();
         const b = api.getDolar();
         window.localStorage.setItem("CURRENCY_DATA-USD", (await b).serie[0].valor.toString());
         window.localStorage.setItem("CURRENCY_DATA-DATE", (await b).serie[0].fecha);

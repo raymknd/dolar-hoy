@@ -7,7 +7,7 @@
     "build-dev": "tsc src/index.ts && webpack --config=webpack.config.dev.js",
     "build": "tsc src/index.ts && webpack --config=webpack.config.prod.js",
     "init": "npm i && npm run bundle",
-    "start": "tsc src/index.ts && webpack-dev-server --config=webpack.config.dev.js --open"
+    "start": "tsc src/index.ts && webpack-dev-server --config=webpack.config.dev.js"
   },
   "keywords": [],
   "author": "",

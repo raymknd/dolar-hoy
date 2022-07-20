@@ -37,111 +37,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 require("./html/css/main.scss");
-var dateHandler_1 = require("./modules/dateHandler");
-var Currency_1 = require("./modules/Currency");
-var InputHandler_1 = require("./modules/InputHandler");
-var Data_1 = require("./modules/Data");
-(function () {
-    var x = document.getElementById("js--toggle-theme") || false;
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add("dark-mode");
-    }
-    if (x) {
-        var icon_1 = x.querySelector("span");
-        x.addEventListener("click", function (e) {
-            e.preventDefault();
-            if (document.body.classList.contains("dark-mode")) {
-                document.body.classList.remove("dark-mode");
-                if (icon_1)
-                    icon_1.innerHTML = "dark_mode";
-            }
-            else {
-                document.body.classList.add("dark-mode");
-                if (icon_1)
-                    icon_1.innerHTML = "light_mode";
-            }
-        });
-    }
-})();
-var today = (0, dateHandler_1["default"])();
-var dateContainer = document.getElementById("js--actual-date") || false;
-if (dateContainer)
-    dateContainer.innerHTML = "".concat(today.day.name, ", ").concat(today.day.number, " de ").concat(today.month.name, " del ").concat(today.year);
-var firstInput = document.getElementById("js--first-input");
-var secondInput = document.getElementById("js--second-input");
+var Theme_1 = require("./modules/Theme");
+var theme = new Theme_1.Theme(document);
+theme.changeTheme();
 (function () {
     return __awaiter(this, void 0, void 0, function () {
-        var l, b, dolar, error_1, USD, PARSED_USD, options, a, cv;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    l = document.getElementById("js--dolar-loader");
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, Data_1.DataAPI.getDolar(0)];
-                case 2:
-                    b = _a.sent();
-                    dolar = b.dolar;
-                    window.localStorage.setItem("CURRENCY_DATA-USD", dolar.serie.valor.toString());
-                    window.localStorage.setItem("CURRENCY_DATA-DATE", dolar.serie.fecha.toString());
-                    document.body.classList.add("data-fetched");
-                    if (l) {
-                        l.addEventListener("transitionend", function () {
-                            if (document.body.classList.contains("data-fetched"))
-                                l.remove();
-                            document.body.removeAttribute("style");
-                        });
-                    }
-                    return [3 /*break*/, 4];
-                case 3:
-                    error_1 = _a.sent();
-                    console.log(error_1);
-                    document.body.classList.add("data-fetched");
-                    document.body.innerHTML += '<div class="dolar-error" id="js--dolar-error"> <div> <div class="dolar-error_icon"> <span class="material-symbols-outlined"> error </span> </div> <div class="dolar-error_title">Hubo un error</div> <div class="dolar-error_tryagain">Puedes volver a intentar más tarde, lamentamos las molestias.</div> </div> </div>';
-                    return [3 /*break*/, 4];
-                case 4:
-                    USD = window.localStorage.getItem("CURRENCY_DATA-USD");
-                    PARSED_USD = USD !== null ? parseInt(USD) : false;
-                    if (!PARSED_USD)
-                        throw new Error("No se encontró el valor de la divisa en el storage o era invalida. [C0]");
-                    options = [
-                        {
-                            base: "USD",
-                            rates: {
-                                CLP: PARSED_USD
-                            }
-                        },
-                        {
-                            base: "CLP",
-                            rates: {
-                                USD: 1 / PARSED_USD
-                            }
-                        }
-                    ];
-                    a = new Currency_1["default"](options);
-                    cv = document.getElementById("js--clp-current-value");
-                    if (cv) {
-                        cv.innerHTML = a.calculate({
-                            currencies: {
-                                base: "USD",
-                                toBeConverted: "CLP"
-                            },
-                            value: 1
-                        }, false).toString();
-                    }
-                    if (firstInput && secondInput) {
-                        firstInput.value = InputHandler_1.formatter.format(PARSED_USD);
-                        secondInput.value = "1";
-                        firstInput.addEventListener("input", function () {
-                            (0, InputHandler_1.InputHandler)(firstInput, secondInput, a);
-                        });
-                        secondInput.addEventListener("input", function () {
-                            (0, InputHandler_1.InputHandler)(secondInput, firstInput, a, 0);
-                        });
-                    }
-                    return [2 /*return*/];
-            }
+            theme.getToday();
+            theme.getDolar();
+            theme.getCurrency();
+            return [2 /*return*/];
         });
     });
 })();

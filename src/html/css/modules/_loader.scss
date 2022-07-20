@@ -12,6 +12,7 @@
     opacity: 100%;
     visibility: visible;
     transition: opacity .5s ease, visibility .5s ease;
+    color: white;
 }
 body.data-fetched .dolar-loader {
     visibility: hidden;

@@ -2,7 +2,7 @@ import "./html/css/main.scss";
 import getDate from "./modules/dateHandler";
 import Currency, { Currencies } from "./modules/Currency";
 import { formatter, InputHandler } from "./modules/InputHandler";
-import DataAPI from "./modules/Data";
+import {ResponseApiSingle, DataAPI} from "./modules/Data";
 
 (function() {
     const x = document.getElementById("js--toggle-theme") || false;
@@ -26,7 +26,6 @@ import DataAPI from "./modules/Data";
 })();
 
 const today = getDate();
-const api = new DataAPI();
 const dateContainer = document.getElementById("js--actual-date") || false;
 if(dateContainer) dateContainer.innerHTML = `${today.day.name}, ${today.day.number} de ${today.month.name} del ${today.year}`;
 
@@ -45,9 +44,10 @@ const secondInput = document.getElementById("js--second-input") as HTMLInputElem
     const l = document.getElementById("js--dolar-loader");
 
     try {
-        const b: Promise<y> = api.getDolar();
-        window.localStorage.setItem("CURRENCY_DATA-USD", (await b).serie[0].valor.toString());
-        window.localStorage.setItem("CURRENCY_DATA-DATE", (await b).serie[0].fecha);
+        const b = await DataAPI.getDolar(0)
+        const dolar = b.dolar as ResponseApiSingle;
+        window.localStorage.setItem("CURRENCY_DATA-USD", dolar.serie.valor.toString());
+        window.localStorage.setItem("CURRENCY_DATA-DATE", dolar.serie.fecha.toString());
         document.body.classList.add("data-fetched");
         if(l) {
             l.addEventListener("transitionend", () => {

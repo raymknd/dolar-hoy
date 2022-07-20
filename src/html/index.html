@@ -12,14 +12,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
 </head>
 <body style="overflow: hidden;">
     <div class="dolar-loader" id="js--dolar-loader" role="dialog">
         <div>
             <div class="dolar-loader_icon">
                 <span class="material-symbols-outlined">
-                    hourglass_half
+                    hourglass_bottom
                 </span>
             </div>
         </div>
@@ -42,6 +42,7 @@
     <main class="dolar-content">
         <h1 class="dolar-content_land-title">Valor Del Dólar</h1>
         <div class="dolar-content_land-date" id="js--actual-date"></div>
+        <p>Conoce el precio del dólar en Chile</p>
         <section class="dolar-ad_container">
             <div class="dolar-ad">
                 SM: 320x100 XL: 728x90
@@ -49,30 +50,30 @@
             <small class="dolar-ad_disclaimer">Publicidad</small>
         </section>
         <section class="dolar-exchange-rate_container">
-            <div class="dolar-exchange-rate_title">Conversión</div>
+            <h2 class="dolar-exchange-rate_title">Cambio Dólar a Peso Chileno</h2>
             <div class="dolar-exchange-rate_inputs">
                 <div class="dolar-exchange-rate_inputs-inner">
-                    <div class="dolar-input_container" data-currency="CLP">
-                        <div class="dolar-input_currency-container">
-                            <img src="static/flag-chile.svg" alt="Currency #1" draggable="false">
-                        </div>
-                        <div class="dolar-input_input-container">
-                            <input type="text" id="js--first-input">
-                        </div>
-                        <div class="dolar-input_selected-currency-code">
-                            CLP
-                        </div>
-                    </div>
-                    <div class="dolar-exchange-rate_swap"> <span class="material-symbols-outlined"> swap_vert </span> </div>
                     <div class="dolar-input_container" data-currency="USD">
                         <div class="dolar-input_currency-container">
                             <img src="static/flag-usa.svg" alt="Currency #1" draggable="false">
                         </div>
                         <div class="dolar-input_input-container">
-                            <input type="text" id="js--second-input">
+                            <input type="text" id="js--first-input">
                         </div>
                         <div class="dolar-input_selected-currency-code">
                             USD
+                        </div>
+                    </div>
+                    <div class="dolar-exchange-rate_swap"> <span class="material-symbols-outlined"> swap_vert </span> </div>
+                    <div class="dolar-input_container" data-currency="CLP">
+                        <div class="dolar-input_currency-container">
+                            <img src="static/flag-chile.svg" alt="Currency #1" draggable="false">
+                        </div>
+                        <div class="dolar-input_input-container">
+                            <input type="text" id="js--second-input">
+                        </div>
+                        <div class="dolar-input_selected-currency-code">
+                            CLP
                         </div>
                     </div>
                 </div>

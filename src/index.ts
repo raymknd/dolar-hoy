@@ -102,8 +102,8 @@ const secondInput = document.getElementById("js--second-input") as HTMLInputElem
     }
 
     if(firstInput && secondInput) {
-        firstInput.value = formatter.format(PARSED_USD);
-        secondInput.value = "1";
+        firstInput.value = "1";
+        secondInput.value = formatter.format(PARSED_USD);
         firstInput.addEventListener("input", () => {
             InputHandler(firstInput, secondInput, a);
         });

@@ -62,6 +62,7 @@
     align-items: center;
     img {
         height: 60px;
+        filter: saturate(150%);
     }
     a {
         text-decoration: underline;

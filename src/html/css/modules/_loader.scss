@@ -9,14 +9,14 @@
     align-items: center;
     background: rgba(0, 0, 0, 0.8);
     z-index: 999;
-    opacity: 100%;
+    opacity: 1;
     visibility: visible;
     transition: opacity .5s ease, visibility .5s ease;
     color: white;
 }
 body.data-fetched .dolar-loader {
     visibility: hidden;
-    opacity: 0%;
+    opacity: 0;
 }
 .dolar-loader_icon {
     animation: loader_spin cubic-bezier(.36,1.97,.62,1) 4s infinite;

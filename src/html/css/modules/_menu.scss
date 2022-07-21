@@ -20,7 +20,7 @@
     visibility: visible;
     .dolar-menu_content-link {
         transform: translateX(0%);
-        opacity: 100%;
+        opacity: 1;
     }
     .dolar-menu_backdrop {
         background: rgba(0, 0, 0, 0.9);
@@ -38,7 +38,7 @@
     font-size: 40px;
     font-weight: 600;
     margin-bottom: .8rem;
-    opacity: 0%;
+    opacity: 0;
     transform: translateX(-10%);
 }
 .dolar-menu_content-link:first-child {

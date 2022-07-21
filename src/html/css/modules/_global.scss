@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "Josefin Sans";
+    src: url("/static/JosefinSans-VariableFont_wght.ttf");
+}
 body {
     min-height: 100vh;
     width: 100%;
@@ -22,4 +26,7 @@ body.dark-mode {
 a {
     text-decoration: none;
     color: inherit;
+}
+.is-hidden {
+    display: none;
 }

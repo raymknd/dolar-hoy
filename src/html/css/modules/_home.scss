@@ -8,7 +8,7 @@
 .dolar-content_land-date {
     font-size: 20px;
     font-weight: 500;
-    opacity: 50%;
+    opacity: 0.5;
 }
 .dolar-exchange-rate_title {
     font-size: 23px;
@@ -24,7 +24,7 @@
 .dolar-exchange-rate_swap {
     margin: .8rem auto;
     user-select: none;
-    opacity: 50%;
+    opacity: 0.5;
     transition: transform .5s ease;
 }
 .dolar-exchange-rate_swap.is-rotated {
@@ -60,7 +60,7 @@
     }
     .dolar-error_tryagain {
         font-size: 120%;
-        opacity: 70%;
+        opacity: 0.7;
     }
 }
 .dolar-current-value_container {

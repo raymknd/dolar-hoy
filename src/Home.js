@@ -37,15 +37,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 require("./html/css/main.scss");
-var Theme_1 = require("./modules/Theme");
-var theme = new Theme_1.Theme(document);
-theme.changeTheme();
+var Menu_1 = require("./modules/Global/Menu");
+var Theme_1 = require("./modules/Global/Theme");
+var Home_1 = require("./modules/Home/Home");
+var themeHandler = new Theme_1.Theme();
+themeHandler.listen();
+var menu = new Menu_1.Menu(document.getElementById("js--menu"));
+menu.listen();
+var home = new Home_1.Home(document);
 (function () {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            theme.getToday();
-            theme.getDolar();
-            theme.getCurrency();
+            home.getToday();
+            home.getDolar();
+            home.getCurrency();
             return [2 /*return*/];
         });
     });

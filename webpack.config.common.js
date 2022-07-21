@@ -7,7 +7,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        home: './src/home.js',
+        noticias: './src/noticias.js' 
+    },
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
@@ -18,6 +21,13 @@ module.exports = {
             filename: 'index.html',
             inject: true,
             template: path.resolve(__dirname, 'src/html', 'index.html'),
+            chunks: ["home"]
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'noticias.html',
+            inject: true,
+            template: path.resolve(__dirname, 'src/html', 'noticias.html'),
+            chunks: ["noticias"]
         }),
         new CopyWebpackPlugin({
             patterns: [{

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-235063599-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-235063599-1');
+    </script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3614255412290776"
+    crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dólar hoy</title>
+    <link rel="manifest" href="static/manifest.json">
+    <link rel="icon" href="static/dolar-hoy-logo@2x.png">
+    <link rel="apple-touch-icon" href="static/dolar-icon-152.png">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style> .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48 } </style>
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link href="//fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="dolar-nav">
+        <a class="dolar-nav_icon menu-toggler" href="#" data-menu="open">
+            <span class="material-symbols-outlined">
+                menu
+            </span>
+        </a>
+        <div class="dolar-nav_logo">
+            <img src="static/dolar-hoy-logo@2x.png" alt="Dolar hoy logo" draggable="false">
+        </div>
+        <a class="dolar-nav_icon right-side" href="#" data-settheme>
+            <span class="material-symbols-outlined">
+                light_mode
+            </span>
+        </a>
+    </nav>
+    <main class="dolar-content">
+        <section class="dolar-news" id="js--news-wrapper">
+            <h1 class="dolar-content_land-title">Noticias del Dólar</h1>
+            <p>En esta sección podrás encontrar artículos y noticias sobre el valor del dólar.</p>
+            <article class="dolar-news_card">
+                <img src="static/micheile-dot-com-ZVprbBmT8QA-unsplash.jpeg" alt="Article photo">
+                <div class="dolar-news_card-content">
+                    <h3>Title</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <a class="dolar-button dolar-news_card-action">Seguir leyendo</a>
+                </div>
+            </article>
+        </section>
+    </main>
+    <div class="dolar-menu" id="js--menu">
+        <div class="dolar-menu_backdrop"></div>
+        <div class="dolar-menu_content">
+            <a class="dolar-menu_content-link" data-menu="close" href="#"><span class="material-symbols-outlined close-icon">close</span></a>
+            <a class="dolar-menu_content-link" href="/">Inicio</a>
+            <a class="dolar-menu_content-link" href="/noticias">Noticias</a>
+            <a class="dolar-menu_content-link" href="/app">App</a>
+        </div>
+    </div>
+    <footer class="dolar-footer">
+        <div class="dolar-footer_logo">
+            <img src="static/dolar-hoy-logo@2x.png" alt="Dolar hoy Logo">
+        </div>
+        <h2 class="dolar-footer_title">Dólar hoy</h2>
+        <div class="dolar-footer_sub">En este sitio web puedes conocer el valor del dólar para el día de hoy. Puedes realizar la conversión de dólar a peso chileno y también al revés.</div>
+        <div class="dolar-footer_button-wrapper">
+            <a class="dolar-button elevation-medium dolar-footer_button" href="/">Convierte dólar a peso</a>
+        </div>
+        <div class="dolar-footer_line"></div>
+        <!-- <div class="dolar-footer_links">
+            <a class="dolar-footer_links--link" href="mailto:contacto@valordolarhoy.cl">Contacto</a>
+            <a class="dolar-footer_links--link" target="_blank" href="https://support.google.com/adsense/answer/1348695?hl=en">Privacidad</a>
+        </div> -->
+        <div class="dolar-footer_dev">
+            <img src="static/pcbkn-logo-small.png" alt="PcBkn Logo">
+            <div class="dolar-footer_dev-info">Diseñado y desarrollado con &#60;3 por <a target="_blank" href="https://pcbkn.cl/">PcBkn</a> en Santiago, Chile.</div>
+        </div>
+    </footer>
+    <script type="text/template" id="js--news-template">
+        <article class="dolar-news_card">
+            <img src="{{image}}" alt="Article photo">
+            <div class="dolar-news_card-content">
+                <h3>{{title}}</h3>
+                <p>{{content}}</p>
+                <a class="dolar-button dolar-news_card-action" href="{{link}}">Seguir leyendo</a>
+            </div>
+        </article>
+    </script>
+</body>
+</html> 

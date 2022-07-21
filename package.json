@@ -4,10 +4,11 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build-dev": "tsc src/index.ts && webpack --config=webpack.config.dev.js",
-    "build": "tsc src/index.ts && webpack --config=webpack.config.prod.js",
+    "build-dev": "tsc src/Home.ts && tsc src/Noticias.ts && webpack --config=webpack.config.dev.js",
+    "build": "tsc src/Home.ts && tsc src/Noticias.ts && webpack --config=webpack.config.prod.js",
     "init": "npm i && npm run bundle",
-    "start": "tsc src/index.ts && webpack-dev-server --config=webpack.config.dev.js"
+    "start": "tsc src/Home.ts && tsc src/Noticias.ts && webpack-dev-server --config=webpack.config.dev.js",
+    "build-ts": "tsc src/Home.ts && tsc src/Noticias.ts"
   },
   "keywords": [],
   "author": "",

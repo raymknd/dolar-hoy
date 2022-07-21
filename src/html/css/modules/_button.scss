@@ -1,3 +1,38 @@
+.dolar-button {
+    padding: .8rem 1.2rem;
+    background: none;
+    display: inline-flex;
+    border: 0;
+    color: inherit;
+    transition: background .2s ease;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.1);
+}
+.dolar-button.elevation-low {
+    background: rgba(0, 0, 0, 0.05);
+}
+.dolar-button.elevation-medium {
+    background: rgba(0, 0, 0, 0.075);
+}
+.dolar-button:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode {
+    .dolar-button {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .dolar-button.elevation-low {
+        background: rgba(255, 255, 255, 0.05);
+    }
+    .dolar-button.elevation-medium {
+        background: rgba(255, 255, 255, 0.075);
+    }
+    .dolar-button:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+}
+
 .dolar-icon-button {
     padding: 0;
     background: none;

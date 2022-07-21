@@ -20,6 +20,7 @@
     text-align: center;
     margin-top: 1rem;
     font-weight: 500;
+    margin-block-end: 0;
 }
 .dolar-footer_sub {
     margin-top: 0.5rem;
@@ -73,4 +74,15 @@
     margin-right: 0.5rem;
     font-weight: 300;
     text-align: start;
+}
+.dolar-footer_button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+.dolar-footer_line {
+    width: 100%;
+    margin: 1.5rem 0 1rem 0;
+    border-top: 1px solid gray;
 }

@@ -1,31 +1,11 @@
-import Currency, { Currencies } from './Currency';
-import {ResponseApiSingle, DataAPI} from "./Data";
+import Currency, { Currencies } from '../Global/Currency';
+import {ResponseApiSingle, DataAPI} from "../Global/Data";
 import getDate from "./dateHandler";
 import { formatter, InputHandler } from "./InputHandler";
-export class Theme {
+export class Home {
     d:Document;
     constructor(document: Document) {
         this.d = document;
-    }
-    changeTheme = () => {
-        const x = this.d.getElementById("js--toggle-theme") || false;
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            this.d.body.classList.add("dark-mode");
-        }
-        if(x) {
-            const icon = x.querySelector("span");
-            x.addEventListener("click", (e) => {
-                e.preventDefault();
-                if(this.d.body.classList.contains("dark-mode")) {
-                    this.d.body.classList.remove("dark-mode");
-                    if(icon) icon.innerHTML = "dark_mode";
-                }
-                else {
-                    this.d.body.classList.add("dark-mode");
-                    if(icon) icon.innerHTML = "light_mode";
-                }
-            })
-        }
     }
     getDolar = async () => {
         const l = this.d.getElementById("js--dolar-loader");

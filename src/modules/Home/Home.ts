@@ -14,7 +14,6 @@ export class Home {
             if (!b?.dolar.result) {
                 return;
             }
-            console.log(b?.dolar.success);
             this.d.body.classList.add("data-fetched");
             if (l) {
                 l.addEventListener("transitionend", () => {

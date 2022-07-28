@@ -44,10 +44,12 @@ var DataAPI = /** @class */ (function () {
     var _a;
     _a = DataAPI;
     DataAPI.getDolar = function (indice) { return __awaiter(void 0, void 0, void 0, function () {
-        var a, json, newDolar, dolar;
+        var a, json, newDolar, dolar, error_1;
         return __generator(_a, function (_b) {
             switch (_b.label) {
-                case 0: return [4 /*yield*/, fetch('https://mindicador.cl/api/dolar')];
+                case 0:
+                    _b.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, fetch('https://mindicador.cl/api/dolar')];
                 case 1:
                     a = _b.sent();
                     return [4 /*yield*/, a.json()];
@@ -62,6 +64,11 @@ var DataAPI = /** @class */ (function () {
                         return [2 /*return*/, new DataAPI(newDolar)];
                     }
                     return [2 /*return*/, new DataAPI(dolar)];
+                case 3:
+                    error_1 = _b.sent();
+                    console.log(error_1);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     }); };

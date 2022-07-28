@@ -18,16 +18,21 @@ export class DataAPI {
         this.dolar = dolarActual;
     }
     static getDolar = async (indice?:number) => {
-        const a = await fetch('https://mindicador.cl/api/dolar');
-        const json = await a.json();
-        let newDolar:ResponseApiSingle = {} as ResponseApiSingle;
-        const dolar:ResponseApi = json;
-        if (typeof indice !== 'undefined') {
-            newDolar.codigo = dolar.codigo;
-            newDolar.serie = {} as ResponseApiSerie
-            newDolar.serie = dolar.serie.filter((x,i) => i == indice )[0];
-            return new DataAPI(newDolar)
+        try {
+            const a = await fetch('https://mindicador.cl/api/dolar');
+            const json = await a.json();
+            let newDolar:ResponseApiSingle = {} as ResponseApiSingle;
+            const dolar:ResponseApi = json;
+            if (typeof indice !== 'undefined') {
+                newDolar.codigo = dolar.codigo;
+                newDolar.serie = {} as ResponseApiSerie
+                newDolar.serie = dolar.serie.filter((x,i) => i == indice )[0];
+                return new DataAPI(newDolar)
+            }
+            return new DataAPI(dolar);
+        } catch (error) {
+            console.log(error);
+            
         }
-        return new DataAPI(dolar);
     }
-}
+}   

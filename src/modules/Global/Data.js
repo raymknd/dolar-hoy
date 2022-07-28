@@ -37,41 +37,53 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.DataAPI = void 0;
+var uuid_1 = require("uuid");
 var DataAPI = /** @class */ (function () {
     function DataAPI(dolarActual) {
         this.dolar = dolarActual;
     }
     var _a;
     _a = DataAPI;
-    DataAPI.getDolar = function (indice) { return __awaiter(void 0, void 0, void 0, function () {
-        var a, json, newDolar, dolar, error_1;
-        return __generator(_a, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    _b.trys.push([0, 3, , 4]);
-                    return [4 /*yield*/, fetch('https://mindicador.cl/api/dolar')];
-                case 1:
-                    a = _b.sent();
-                    return [4 /*yield*/, a.json()];
-                case 2:
-                    json = _b.sent();
-                    newDolar = {};
-                    dolar = json;
-                    if (typeof indice !== 'undefined') {
-                        newDolar.codigo = dolar.codigo;
-                        newDolar.serie = {};
-                        newDolar.serie = dolar.serie.filter(function (x, i) { return i == indice; })[0];
-                        return [2 /*return*/, new DataAPI(newDolar)];
-                    }
-                    return [2 /*return*/, new DataAPI(dolar)];
-                case 3:
-                    error_1 = _b.sent();
-                    console.log(error_1);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
-            }
+    DataAPI.getDolar = function (quote, amount) {
+        if (amount === void 0) { amount = 1; }
+        return __awaiter(void 0, void 0, void 0, function () {
+            var headers, opts, a, json, dolar, error_1;
+            return __generator(_a, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _b.trys.push([0, 3, , 4]);
+                        headers = {
+                            'Content-Type': 'application/json',
+                            'X-Request-Id': (0, uuid_1.v4)(),
+                            'apiKey': "rM3wN2LfB36rnoJsv2R5aNxXkSr2fVKd"
+                        };
+                        opts = {
+                            method: 'GET',
+                            headers: headers
+                        };
+                        return [4 /*yield*/, fetch("https://circumvent-cors.herokuapp.com/https://api.apilayer.com/currency_data/convert?to=".concat(quote, "&from=USD&amount=").concat(amount), opts)];
+                    case 1:
+                        a = _b.sent();
+                        return [4 /*yield*/, a.json()];
+                    case 2:
+                        json = _b.sent();
+                        dolar = json;
+                        // if (typeof quote !== 'undefined') {
+                        //     newDolar.codigo = dolar.codigo;
+                        //     newDolar.serie = {} as ResponseApiSerie
+                        //     newDolar.serie = dolar.serie.filter((x, i) => i == indice)[0];
+                        //     return new DataAPI(newDolar)
+                        // }
+                        return [2 /*return*/, new DataAPI(dolar)];
+                    case 3:
+                        error_1 = _b.sent();
+                        console.log(error_1);
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
+            });
         });
-    }); };
+    };
     return DataAPI;
 }());
 exports.DataAPI = DataAPI;

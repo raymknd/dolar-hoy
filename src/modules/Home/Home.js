@@ -45,21 +45,36 @@ var Home = /** @class */ (function () {
     function Home(document) {
         var _this = this;
         this.getDolar = function () { return __awaiter(_this, void 0, void 0, function () {
-            var b, error_1;
+            var l, b, error_1;
+            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Data_1.DataAPI.getDolar(0)];
+                        l = this.d.getElementById("js--dolar-loader");
+                        _a.label = 1;
                     case 1:
-                        b = _a.sent();
-                        if (b === null || b === void 0 ? void 0 : b.dolar)
-                            return [2 /*return*/, b.dolar];
-                        return [3 /*break*/, 3];
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, Data_1.DataAPI.getDolar('CLP')];
                     case 2:
+                        b = _a.sent();
+                        if (!(b === null || b === void 0 ? void 0 : b.dolar.result)) {
+                            return [2 /*return*/];
+                        }
+                        console.log(b === null || b === void 0 ? void 0 : b.dolar.success);
+                        this.d.body.classList.add("data-fetched");
+                        if (l) {
+                            l.addEventListener("transitionend", function () {
+                                if (_this.d.body.classList.contains("data-fetched"))
+                                    l.remove();
+                                _this.d.body.removeAttribute("style");
+                            });
+                        }
+                        return [2 /*return*/, b.dolar];
+                    case 3:
                         error_1 = _a.sent();
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
+                        console.log(error_1);
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
                 }
             });
         }); };
@@ -73,12 +88,10 @@ var Home = /** @class */ (function () {
             var USD, PARSED_USD, options, a, cv, firstInput, secondInput;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getDolar()
-                        // const DATE = window.localStorage.getItem("CURRENCY_DATA-DATE");
-                    ];
+                    case 0: return [4 /*yield*/, this.getDolar()];
                     case 1:
                         USD = _a.sent();
-                        PARSED_USD = USD !== undefined ? parseInt(USD.serie.valor.toString()) : false;
+                        PARSED_USD = (USD === null || USD === void 0 ? void 0 : USD.info.quote) || 0;
                         if (!PARSED_USD)
                             throw new Error("No se encontró el valor de la divisa en el storage o era invalida. [C0]");
                         options = [

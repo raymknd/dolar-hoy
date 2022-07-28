@@ -8,12 +8,25 @@ export class Home {
         this.d = document;
     }
     getDolar = async () => {
-        // const l = this.d.getElementById("js--dolar-loader");
+        const l = this.d.getElementById("js--dolar-loader");
         try {
-            const b = await DataAPI.getDolar(0);
-            if (b?.dolar) return b.dolar as ResponseApiSingle;
+            const b = await DataAPI.getDolar('CLP')
+            if (!b?.dolar.result) {
+                return;
+            }
+            console.log(b?.dolar.success);
+            this.d.body.classList.add("data-fetched");
+            if (l) {
+                l.addEventListener("transitionend", () => {
+                    if (this.d.body.classList.contains("data-fetched")) l.remove();
+                    this.d.body.removeAttribute("style");
+                })
+            }
+            return b.dolar as ResponseApiSingle;
         } catch (error) {
-            
+            console.log(error);
+            // this.d.body.classList.add("data-fetched");
+            // this.d.body.innerHTML += '<div class="dolar-error" id="js--dolar-error"> <div> <div class="dolar-error_icon"> <span class="material-symbols-outlined"> error </span> </div> <div class="dolar-error_title">Hubo un error</div> <div class="dolar-error_tryagain">Puedes volver a intentar más tarde, lamentamos las molestias.</div> </div> </div>';
         }
     }
     getToday = () => {
@@ -21,10 +34,9 @@ export class Home {
         const dateContainer = this.d.getElementById("js--actual-date") || false;
         if(dateContainer) dateContainer.innerHTML = `${today.day.name}, ${today.day.number} de ${today.month.name} del ${today.year}`;
     }
-    getCurrency = async () => {
-        const USD = await this.getDolar()
-        // const DATE = window.localStorage.getItem("CURRENCY_DATA-DATE");
-        const PARSED_USD = USD !== undefined ? parseInt(USD.serie.valor.toString()) : false;
+    getCurrency = async() => {
+        const USD = await this.getDolar();
+        const PARSED_USD = USD?.info.quote || 0;
     
         if(!PARSED_USD) throw new Error("No se encontró el valor de la divisa en el storage o era invalida. [C0]");
     

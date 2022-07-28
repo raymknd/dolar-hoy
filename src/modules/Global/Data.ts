@@ -1,34 +1,41 @@
-export interface ResponseApi {
-    codigo: string,
-    serie: [ResponseApiSerie]
+import { v4 as uuidv4 } from 'uuid';
+export interface Query {
+    from: string,
+    to: string,
+    amount: number;
 }
-export interface ResponseApiSingle {
-    codigo: string,
-    serie: ResponseApiSerie
+export interface Info {
+    timestamp: number,
+    quote: number,
 }
 
-export interface ResponseApiSerie {
-    fecha: Date,
-    valor: number
+export interface ResponseApiSingle {
+    success: boolean,
+    query: Query,
+    info: Info,
+    result: number
 }
 
 export class DataAPI {
-    dolar: ResponseApi | ResponseApiSingle
-    constructor(dolarActual:ResponseApi | ResponseApiSingle ) {
+    dolar: ResponseApiSingle
+    constructor(dolarActual: ResponseApiSingle) {
         this.dolar = dolarActual;
     }
-    static getDolar = async (indice?:number) => {
+    static getDolar = async (quote?: string, amount: number = 1) => {
         try {
-            const a = await fetch('https://mindicador.cl/api/dolar');
+            const headers: HeadersInit = {
+                'Content-Type': 'application/json',
+                'X-Request-Id': uuidv4(),
+                'apiKey': `rM3wN2LfB36rnoJsv2R5aNxXkSr2fVKd`
+              }
+            const opts: RequestInit = {
+                method: 'GET',
+                headers,
+              };
+
+            const a = await fetch(`https://circumvent-cors.herokuapp.com/https://api.apilayer.com/currency_data/convert?to=${quote}&from=USD&amount=${amount}`, opts)
             const json = await a.json();
-            let newDolar:ResponseApiSingle = {} as ResponseApiSingle;
-            const dolar:ResponseApi = json;
-            if (typeof indice !== 'undefined') {
-                newDolar.codigo = dolar.codigo;
-                newDolar.serie = {} as ResponseApiSerie
-                newDolar.serie = dolar.serie.filter((x,i) => i == indice )[0];
-                return new DataAPI(newDolar)
-            }
+            const dolar: ResponseApiSingle = json;
             return new DataAPI(dolar);
         } catch (error) {
             console.log(error);

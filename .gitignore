@@ -8,7 +8,6 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
-src/modules/*.js
 src/modules/*/*.js
 Home.js
 Noticias.js

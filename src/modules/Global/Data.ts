@@ -18,6 +18,8 @@ export interface ResponseApiSingle {
 
 export class DataAPI {
     dolar: ResponseApiSingle
+    // dolarAntiguo: ResponseApiSingle
+
     constructor(dolarActual: ResponseApiSingle) {
         this.dolar = dolarActual;
     }
@@ -26,14 +28,13 @@ export class DataAPI {
             const headers: HeadersInit = {
                 'Content-Type': 'application/json',
                 'X-Request-Id': uuidv4(),
-                'apiKey': `rM3wN2LfB36rnoJsv2R5aNxXkSr2fVKd`
               }
             const opts: RequestInit = {
                 method: 'GET',
                 headers,
               };
 
-            const a = await fetch(`https://circumvent-cors.herokuapp.com/https://api.apilayer.com/currency_data/convert?to=${quote}&from=USD&amount=${amount}`, opts)
+            const a = await fetch(`https://bffdolar.herokuapp.com/api/currency/get-data`, opts)
             const json = await a.json();
             const dolar: ResponseApiSingle = json;
             return new DataAPI(dolar);

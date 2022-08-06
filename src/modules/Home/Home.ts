@@ -21,7 +21,17 @@ export class Home {
             if (!b?.dolar.result) {
                 return;
             }
+<<<<<<< HEAD
             console.log(b?.dolar.success);
+=======
+            this.d.body.classList.add("data-fetched");
+            if (l) {
+                l.addEventListener("transitionend", () => {
+                    if (this.d.body.classList.contains("data-fetched")) l.remove();
+                    this.d.body.removeAttribute("style");
+                })
+            }
+>>>>>>> 1a785b77d1ae88293425b30d89a76297ed1a9346
             return b.dolar as ResponseApiSingle;
         } catch (error) {
             console.log(error);

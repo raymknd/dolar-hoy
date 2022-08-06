@@ -40,18 +40,49 @@ require("./html/css/main.scss");
 var Menu_1 = require("./modules/Global/Menu");
 var Theme_1 = require("./modules/Global/Theme");
 var Home_1 = require("./modules/Home/Home");
+var Toast_1 = require("./modules/Global/Toast");
+require("scroll-behavior-polyfill");
 var themeHandler = new Theme_1.Theme();
 themeHandler.listen();
 var menu = new Menu_1.Menu(document.getElementById("js--menu"));
 menu.listen();
 var home = new Home_1.Home(document);
+var toast = new Toast_1.Toast("#js--dolar-toast");
+var button = document.querySelector("#js--scroll-top");
+if (button) {
+    button.addEventListener("click", function (e) {
+        e.preventDefault();
+        home.scrollTop();
+    });
+}
+if (window.matchMedia('(display-mode: standalone)').matches) {
+    var x = document.querySelector("#js--web-or-app");
+    document.body.classList.add("is-standalone");
+    if (x)
+        x.innerHTML = "esta app";
+}
 (function () {
     return __awaiter(this, void 0, void 0, function () {
+        var error_1;
         return __generator(this, function (_a) {
-            home.getToday();
-            home.getDolar();
-            home.getCurrency();
-            return [2 /*return*/];
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    home.getToday();
+                    return [4 /*yield*/, home.getDolar()];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, home.getCurrency()];
+                case 2:
+                    _a.sent();
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_1 = _a.sent();
+                    console.log(error_1);
+                    toast.error("Hubo un error, lamentamos las molestias, vuelve a intentar más tarde.", 3500);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
         });
     });
 })();

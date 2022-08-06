@@ -1,48 +1,52 @@
 .dolar-about {
-    width: 80%;
-    margin: 1.5rem auto;
-    text-align: start;
-}
-.dolar-about_title {
-    font-size: 25px;
-    font-weight: 500;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-top: 1rem;
-}
-.dolar-about_image {
     width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 2rem 0;
-}
-.dolar-about_section {
-    margin-bottom: 2rem;
-    a {
-        text-decoration: underline;
-        font-weight: 600;
+    .where-to-title {
+        margin-top: 25px;
     }
-    .dolar-about_section-title {
+    p {
+        font-size: 18px;
+        line-height: 22px;  
         margin-block-end: 0;
         margin-block-start: 0;
-        margin-bottom: 1rem;
-        font-size: 23px;
-        font-weight: 500;
+        margin-bottom: 0;
     }
-    .dolar-about_section-paragraph {
-        margin-block-end: 0;
-        margin-block-start: 0;
-        font-size: 18px;
-        opacity: 0.8;
-    }
-    .dolar-about_section-list {
-        font-size: 18px;
-        opacity: 0.8;
-        padding-inline-start: 0;
-        li {
-            margin-top: 1rem;
-            list-style-type: none;
+    .dolar-about_section {
+        margin-top: 30px;
+        &:last-child {
+            margin-bottom: 30px;
+        }
+        .section_icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span {
+                font-size: 20px;
+            }
+        }
+        .section_title {
+            margin-block-end: 0;
+        }
+        .section_title,
+        .section_content {
+            padding: 15px 0 5px 0;
+            p,
+            ul {
+                font-size: 18px;
+                line-height: 22px;  
+                margin-block-end: 0;
+                margin-block-start: 0;
+                margin-bottom: 0;
+            }
+            ul {
+                margin-top: 15px;
+                li {
+                    margin-bottom: 15px;
+                }
+            }
         }
     }
 }

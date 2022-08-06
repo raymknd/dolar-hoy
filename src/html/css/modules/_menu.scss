@@ -56,6 +56,11 @@
 .dolar-menu_content-link:last-child {
     transition: transform .5s cubic-bezier(.17,.99,.62,1) .3s, opacity .5s cubic-bezier(.17,.99,.62,1) .3s;
 }
+body.is-standalone {
+    .if-app-hidden {
+        display: none !important;
+    }
+}
 .close-icon {
     font-size: 40px;
     margin-left: -5px;

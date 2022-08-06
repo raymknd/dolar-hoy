@@ -17,144 +17,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dólar hoy</title>
     <link rel="manifest" href="static/manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="icon" href="static/dolar-hoy-logo@2x.png">
     <link rel="apple-touch-icon" href="static/dolar-icon-152.png">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style> .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48 } </style>
     <!-- <link rel="preconnect" href="//fonts.googleapis.com">
     <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
     <link href="//fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> -->
 </head>
-<body style="overflow: hidden;">
-    <div class="dolar-loader" id="js--dolar-loader" role="dialog">
-        <div>
-            <div class="dolar-loader_icon">
+<body>
+    <div class="dolar-home_header">
+        <div class="dolar-home_background"></div>
+        <nav class="dolar-nav">
+            <a class="dolar-nav_icon menu-toggler" href="#" data-menu="open">
                 <span class="material-symbols-outlined">
-                    hourglass_bottom
+                    menu
                 </span>
+            </a>
+            <div class="dolar-nav_logo">
+                <img src="static/dolar-hoy-logo@2x.png" alt="Dolar hoy logo" draggable="false">
             </div>
-        </div>
+            <a class="dolar-nav_icon right-side" href="#" data-settheme>
+                <span class="material-symbols-outlined">
+                    light_mode
+                </span>
+            </a>
+        </nav>
+        <header class="dolar-wrapper_header-text">
+            <h1>Valor del dólar hoy</h1>
+            <h2>Cambio de dólar a peso chileno</h2>
+        </header>
     </div>
-    <nav class="dolar-nav">
-        <a class="dolar-nav_icon menu-toggler" href="#" data-menu="open">
-            <span class="material-symbols-outlined">
-                menu
-            </span>
-        </a>
-        <div class="dolar-nav_logo">
-            <img src="static/dolar-hoy-logo@2x.png" alt="Dolar hoy logo" draggable="false">
-        </div>
-        <a class="dolar-nav_icon right-side" href="#" data-settheme>
-            <span class="material-symbols-outlined">
-                light_mode
-            </span>
-        </a>
-    </nav>
-    <main class="dolar-content">
-        <h1 class="dolar-content_land-title">Valor Del Dólar</h1>
-        <div class="dolar-content_land-date" id="js--actual-date"></div>
-        <section class="dolar-exchange-rate_container">
-            <h2 class="dolar-exchange-rate_title">Cambio Dólar a Peso Chileno</h2>
-            <div class="dolar-exchange-rate_inputs">
-                <div class="dolar-exchange-rate_inputs-inner">
-                    <div class="dolar-input_container" data-currency="USD">
-                        <div class="dolar-input_currency-container">
-                            <img src="static/flag-usa.svg" alt="Currency #1" draggable="false">
-                        </div>
-                        <div class="dolar-input_input-container">
-                            <input type="text" id="js--first-input">
-                        </div>
-                        <div class="dolar-input_selected-currency-code">
-                            USD
-                        </div>
-                    </div>
-                    <div class="dolar-exchange-rate_swap"> <span class="material-symbols-outlined"> swap_vert </span> </div>
-                    <div class="dolar-input_container" data-currency="CLP">
-                        <div class="dolar-input_currency-container">
-                            <img src="static/flag-chile.svg" alt="Currency #1" draggable="false">
-                        </div>
-                        <div class="dolar-input_input-container">
-                            <input type="text" id="js--second-input">
-                        </div>
-                        <div class="dolar-input_selected-currency-code">
-                            CLP
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="dolar-current-value_container">
-                <div class="dolar-current-value-inner"> 
-                    <div class="dolar-current-value_currency">
-                        <div class="dolar-current-value_currency-number">1</div>
-                        <div class="dolar-current-value_currency-currency">USD</div>
-                    </div>
-                    <div class="dolar-current-value_separator">
-                        <span class="material-symbols-outlined">
-                            arrow_forward
-                        </span>
-                    </div>
-                    <div class="dolar-current-value_currency">
-                        <div class="dolar-current-value_currency-number" id="js--clp-current-value">###</div>
-                        <div class="dolar-current-value_currency-currency">CLP</div>
-                    </div>
-                </div>
+    <main class="dolar-wrapper">
+        <section class="dolar-wrapper_values">
+            <div class="dolar-wrapper_values-inner" id="js--currency-value">
+                <div class="dolar-values_container-skeleton"></div>
+                <!-- <div class="dolar-values_container">
+                    <div class="values-value"></div>
+                    <div class="values-currency"></div>
+                </div> -->
+                <div class="dolar-exchange_swap-skeleton is-small"></div>
+                <!-- <div class="dolar-values_swap">
+                    <span class="material-symbols-outlined">
+                        arrow_forward
+                    </span>
+                </div> -->
+                <div class="dolar-values_container-skeleton"></div>
             </div>
         </section>
-        <article class="dolar-about">
-            <h2 class="dolar-about_title">Preguntas sobre el Dólar</h2>
-            <img class="dolar-about_image" src="static/mackenzie-marco-XG88BYDSDZA-unsplash.jpeg" alt="Dolar Image">
-            <section class="dolar-about_section">
-                <h3 class="dolar-about_section-title">¿Qué es el dólar?</h3>
-                <p class="dolar-about_section-paragraph">El dólar es la moneda de Estados Unidos y es una de las más utilizadas a nivel mundial, también es utilizada como instrumento de inversión.</p>
-            </section>
-            <section class="dolar-about_section">
-                <h3 class="dolar-about_section-title">¿Por qué se utiliza el dólar?</h3>
-                <p class="dolar-about_section-paragraph">Por la fortaleza de Estados Unidos se ha respaldado esta moneda como de uso global. Fue establecido en 1944 y en un principio equivalía su peso en oro o plata.</p>
-            </section>
-            <section class="dolar-about_section">
-                <h3 class="dolar-about_section-title">¿Por qué varía el dólar?</h3>
-                <p class="dolar-about_section-paragraph">Existen muchos factores que hacen que el dólar tenga variaciones dependiendo del país que nos encontramos. En el caso de Chile hay 4 factores claves:</p>
-                <ol class="dolar-about_section-list">
-                    <li><strong>&#8226; Balanza comercial:</strong> Diferencia entre importaciones y exportaciones. Si Chile exporta más, significa que llegan más dólares. En el caso de nuestro país, se asocia por el precio del cobre. Si el cobre baja o sube significa que entrarán menos o más dólares y por ende, el precio puede bajar o subir.</li>
-                    <li><strong>&#8226; Tasas de interés</strong> a corto plazo entre Chile y Estados Unidos.</li>
-                    <li><strong>&#8226; Cambios</strong> en la aversión al riesgo.</li>
-                    <li><strong>&#8226; Tendencia</strong> mundial.</li>
-                </ol>
-                <p class="dolar-about_section-paragraph">Otros factores pueden deberse a la política, como el cambio del Gobierno o políticas que atraigan o no a inversionistas, las intervenciones del <a target="_blank" href="https://si3.bcentral.cl/indicadoressiete/secure/indicadoresdiarios.aspx">Banco Central de Chile</a>, cambio de políticas en fondos de pensiones, venta o compra de dólares por parte del Estado.</p>
-            </section>
-            <section class="dolar-about_section">
-                <h3 class="dolar-about_section-title">¿Dónde se pueden cambiar dólares en Chile?</h3>
-                <p class="dolar-about_section-paragraph">Puedes cambiar dólares en Bancos como también casas de cambio como <a target="_blank" href="https://www.afex.cl/">Afex</a>.</p>
-            </section>
-        </article>
-        <!-- <section class="dolar-news">
-            <h2 class="dolar-news_title">Noticias del Dólar</h2>
-            <article class="dolar-news_card">
-                <img src="static/micheile-dot-com-ZVprbBmT8QA-unsplash.jpeg" alt="Article photo">
-                <div class="dolar-news_card-content">
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <a class="dolar-button dolar-news_card-action">Seguir leyendo</a>
-                </div>
-            </article>
-            <article class="dolar-news_card">
-                <img src="static/jason-leung-SAYzxuS1O3M-unsplash.jpeg" alt="Article photo">
-                <div class="dolar-news_card-content">
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <a class="dolar-button dolar-news_card-action">Seguir leyendo</a>
-                </div>
-            </article>
-            <article class="dolar-news_card">
-                <img src="static/jp-valery-blOLCO2K4M0-unsplash.jpeg" alt="Article photo">
-                <div class="dolar-news_card-content">
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <a class="dolar-button dolar-news_card-action">Seguir leyendo</a>
-                </div>
-            </article>
-            <a class="dolar-button elevation-low dolar-news_more-button" href="/noticias.html">Ver más</a>
-        </section> -->
+        <section class="dolar-wrapper_exchange" id="js--inputs-wrapper">
+            <div class="dolar-input_container-skeleton"></div>
+            <div class="dolar-exchange_swap-skeleton"></div>
+            <div class="dolar-input_container-skeleton"></div>
+        </section>
+        <section class="dolar-ad">
+            <div class="placeholder-sm">300x100</div>
+        </section>
     </main>
     <div class="dolar-menu" id="js--menu">
         <div class="dolar-menu_backdrop"></div>
@@ -162,7 +83,7 @@
             <a class="dolar-menu_content-link" data-menu="close" href="#"><span class="material-symbols-outlined close-icon">close</span></a>
             <a class="dolar-menu_content-link" href="/">Inicio</a>
             <a class="dolar-menu_content-link" href="/noticias">Noticias</a>
-            <a class="dolar-menu_content-link" href="/app">App</a>
+            <a class="dolar-menu_content-link if-app-hidden" href="/app">App</a>
         </div>
     </div>
     <footer class="dolar-footer">
@@ -170,9 +91,9 @@
             <img src="static/dolar-hoy-logo@2x.png" alt="Dolar hoy Logo">
         </div>
         <h2 class="dolar-footer_title">Dólar hoy</h2>
-        <div class="dolar-footer_sub">En este sitio web puedes conocer el valor del dólar para el día de hoy. Puedes realizar la conversión de dólar a peso chileno y también al revés.</div>
+        <div class="dolar-footer_sub">En <span id="js--web-or-app">este sitio web</span> puedes conocer el valor del dólar para el día de hoy. Puedes realizar la conversión de dólar a peso chileno y también al revés.</div>
         <div class="dolar-footer_button-wrapper">
-            <a class="dolar-button elevation-medium dolar-footer_button" href="#">Convierte dólar a peso</a>
+            <a class="dolar-button elevation-medium dolar-footer_button" id="js--scroll-top" href="#">Convierte dólar a peso</a>
         </div>
         <div class="dolar-footer_line"></div>
         <!-- <div class="dolar-footer_links">
@@ -184,5 +105,6 @@
             <div class="dolar-footer_dev-info">Diseñado y desarrollado con &#60;3 por <a target="_blank" href="https://pcbkn.cl/">PcBkn</a> en Santiago, Chile.</div>
         </div>
     </footer>
+    <div class="dolar-toast" id="js--dolar-toast"> <div class="dolar-toast_inner"> </div> </div>
 </body>
 </html> 

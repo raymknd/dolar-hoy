@@ -17,6 +17,7 @@ var Menu = /** @class */ (function () {
             }
         };
         this.open = function () {
+            return;
             _this.r.classList.add("is-open");
             _this.b.style.overflow = "hidden";
         };

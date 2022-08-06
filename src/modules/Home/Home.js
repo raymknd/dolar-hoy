@@ -39,42 +39,31 @@ exports.__esModule = true;
 exports.Home = void 0;
 var Currency_1 = require("../Global/Currency");
 var Data_1 = require("../Global/Data");
+var Toast_1 = require("../Global/Toast");
 var dateHandler_1 = require("./dateHandler");
 var InputHandler_1 = require("./InputHandler");
 var Home = /** @class */ (function () {
     function Home(document) {
         var _this = this;
         this.getDolar = function () { return __awaiter(_this, void 0, void 0, function () {
-            var l, b, error_1;
-            var _this = this;
+            var b, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        l = this.d.getElementById("js--dolar-loader");
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 3, , 4]);
+                        _a.trys.push([0, 2, , 3]);
                         return [4 /*yield*/, Data_1.DataAPI.getDolar('CLP')];
-                    case 2:
+                    case 1:
                         b = _a.sent();
                         if (!(b === null || b === void 0 ? void 0 : b.dolar.result)) {
                             return [2 /*return*/];
                         }
                         console.log(b === null || b === void 0 ? void 0 : b.dolar.success);
-                        this.d.body.classList.add("data-fetched");
-                        if (l) {
-                            l.addEventListener("transitionend", function () {
-                                if (_this.d.body.classList.contains("data-fetched"))
-                                    l.remove();
-                                _this.d.body.removeAttribute("style");
-                            });
-                        }
                         return [2 /*return*/, b.dolar];
-                    case 3:
+                    case 2:
                         error_1 = _a.sent();
                         console.log(error_1);
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
                 }
             });
         }); };
@@ -84,8 +73,104 @@ var Home = /** @class */ (function () {
             if (dateContainer)
                 dateContainer.innerHTML = "".concat(today.day.name, ", ").concat(today.day.number, " de ").concat(today.month.name, " del ").concat(today.year);
         };
+        this.scrollTop = function () {
+            window.scroll({
+                behavior: "smooth",
+                top: 0,
+                left: 0
+            });
+        };
+        this.createCurrencyValue = function (value, currency) {
+            var x = typeof value === "number" ? value.toString() : value;
+            var a = _this.d.createElement("div");
+            a.className = "dolar-values_container";
+            var b = _this.d.createElement("div");
+            b.className = "values-value";
+            b.innerHTML = x;
+            var c = _this.d.createElement("div");
+            c.className = "values-currency";
+            c.innerHTML = currency.toUpperCase();
+            a.appendChild(b);
+            a.appendChild(c);
+            return a;
+        };
+        this.createArrow = function () {
+            var a = _this.d.createElement("div");
+            a.className = "dolar-values_swap";
+            var b = _this.d.createElement("span");
+            b.className = "material-symbols-outlined";
+            b.innerHTML = "arrow_forward";
+            a.appendChild(b);
+            return a;
+        };
+        this.createInput = function (currency, inputId) {
+            // Root
+            var a = _this.d.createElement("div");
+            a.className = "dolar-input_container";
+            a.dataset.currency = currency.toUpperCase() === "CLP" ? "CLP" : "USD";
+            // Currency icon
+            var b = _this.d.createElement("div");
+            b.className = "dolar-input_currency-container";
+            var c = _this.d.createElement("img");
+            c.src = currency.toUpperCase() === "CLP" ? "static/flag-chile.svg" : "static/flag-usa.svg";
+            c.alt = currency.toUpperCase() === "CLP" ? "Chile" : "Usa";
+            c.draggable = false;
+            b.appendChild(c);
+            // Input
+            var d = _this.d.createElement("div");
+            d.className = "dolar-input_input-container";
+            var e = _this.d.createElement("input");
+            e.type = "text";
+            e.id = inputId;
+            d.appendChild(e);
+            // Currency code
+            var f = _this.d.createElement("div");
+            f.className = "dolar-input_selected-currency-code";
+            f.innerHTML = currency.toUpperCase() === "CLP" ? "CLP" : "USD";
+            // Append and return
+            a.appendChild(b);
+            a.appendChild(d);
+            a.appendChild(f);
+            return a;
+        };
+        this.createSwap = function () {
+            var a = _this.d.createElement("div");
+            a.className = "dolar-exchange_swap";
+            var b = _this.d.createElement("span");
+            b.className = "material-symbols-outlined";
+            b.innerHTML = "swap_horiz";
+            a.appendChild(b);
+            return a;
+        };
+        this.clearRoot = function () {
+            if (_this.inputRoot)
+                _this.inputRoot.innerHTML = "";
+        };
+        this.setInputs = function (callback) {
+            var firstInput = "js--first-input";
+            var secondInput = "js--second-input";
+            if (_this.inputRoot) {
+                _this.clearRoot();
+                _this.inputRoot.appendChild(_this.createInput("USD", firstInput));
+                _this.inputRoot.appendChild(_this.createSwap());
+                _this.inputRoot.appendChild(_this.createInput("CLP", secondInput));
+                callback(firstInput, secondInput);
+            }
+        };
+        this.setCurrencyValues = function (USD, CLP, root, callback) {
+            var x = _this.d.querySelector(root);
+            if (x) {
+                x.innerHTML = "";
+                x.appendChild(_this.createCurrencyValue(USD, "USD"));
+                x.appendChild(_this.createArrow());
+                x.appendChild(_this.createCurrencyValue(CLP, "CLP"));
+                if (callback)
+                    callback();
+            }
+        };
         this.getCurrency = function () { return __awaiter(_this, void 0, void 0, function () {
-            var USD, PARSED_USD, options, a, cv, firstInput, secondInput;
+            var USD, PARSED_USD, options, a, USD_CURRENT_VALUE;
+            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.getDolar()];
@@ -93,7 +178,7 @@ var Home = /** @class */ (function () {
                         USD = _a.sent();
                         PARSED_USD = (USD === null || USD === void 0 ? void 0 : USD.info.quote) || 0;
                         if (!PARSED_USD)
-                            throw new Error("No se encontró el valor de la divisa en el storage o era invalida. [C0]");
+                            throw new Error("La divisa no está disponible.");
                         options = [
                             {
                                 base: "USD",
@@ -109,33 +194,33 @@ var Home = /** @class */ (function () {
                             }
                         ];
                         a = new Currency_1["default"](options);
-                        cv = this.d.getElementById("js--clp-current-value");
-                        if (cv) {
-                            cv.innerHTML = a.calculate({
-                                currencies: {
-                                    base: "USD",
-                                    toBeConverted: "CLP"
-                                },
-                                value: 1
-                            }, false).toString();
-                        }
-                        firstInput = this.d.getElementById("js--first-input");
-                        secondInput = this.d.getElementById("js--second-input");
-                        if (firstInput && secondInput) {
-                            firstInput.value = "1";
-                            secondInput.value = InputHandler_1.formatter.format(PARSED_USD);
-                            firstInput.addEventListener("input", function () {
-                                (0, InputHandler_1.InputHandler)(firstInput, secondInput, a);
-                            });
-                            secondInput.addEventListener("input", function () {
-                                (0, InputHandler_1.InputHandler)(secondInput, firstInput, a, 0);
-                            });
-                        }
+                        USD_CURRENT_VALUE = a.calculate({ currencies: { base: "USD", toBeConverted: "CLP" }, value: 1 }, 2).toString();
+                        this.setCurrencyValues("1", USD_CURRENT_VALUE, "#js--currency-value");
+                        this.setInputs(function (f, s) {
+                            var firstInput = _this.d.getElementById(f);
+                            var secondInput = _this.d.getElementById(s);
+                            console.log(PARSED_USD);
+                            // setTimeout(() => {
+                            //     this.toast.info(formatter.format(PARSED_USD), 2000)
+                            // }, 1000);
+                            if (firstInput && secondInput) {
+                                firstInput.value = "1";
+                                secondInput.value = InputHandler_1.formatter.format(PARSED_USD);
+                                firstInput.addEventListener("input", function () {
+                                    (0, InputHandler_1.InputHandler)(firstInput, secondInput, a);
+                                });
+                                secondInput.addEventListener("input", function () {
+                                    (0, InputHandler_1.InputHandler)(secondInput, firstInput, a, 0);
+                                });
+                            }
+                        });
                         return [2 /*return*/];
                 }
             });
         }); };
         this.d = document;
+        this.toast = new Toast_1.Toast("#js--dolar-toast");
+        this.inputRoot = this.d.getElementById("js--inputs-wrapper");
     }
     return Home;
 }());

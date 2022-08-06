@@ -1,50 +1,18 @@
-.dolar-news {
-    margin-top: 1rem;
-    width: 80%;
-    margin: 0 auto;
-}
-.dolar-news_title {
-    font-size: 25px;
-    font-weight: 500;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-bottom: 2rem;
-}
-.dolar-news_card {
-    margin-top: 1.5rem;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
-    img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 10px 10px 0px 0px;
+.dolar-wrapper_news {
+    padding: 2rem 0;
+    text-align: left; 
+    a {
+        text-decoration: underline;
     }
-    .dolar-news_card-content {
-        padding: 1.5rem;
-        text-align: start;
-        h3 {
-            margin-block-end: 0;
-            margin-block-start: 0;
-            margin-bottom: .5rem;
-            font-size: 23px;
-            font-weight: 500;
-        }
-        p {
-            font-size: 18px;
-            margin: 0;
-        }
+    p {
+        margin-bottom: 1.5rem;
     }
 }
-body.dark-mode {
-    .dolar-news_card {
-        background: rgba(255, 255, 255, 0.1);
+.news_title {
+    margin-bottom: 1rem;
+}
+ul {
+    li {
+        margin-bottom: 1rem;
     }
-}
-.dolar-news_card-action {
-    margin-top: 1rem;
-}
-.dolar-news_more-button {
-    margin-top: 2rem;
 }

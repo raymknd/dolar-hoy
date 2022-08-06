@@ -24,7 +24,6 @@ export class Menu {
         }
     }
     open = () => {
-        return;
         this.r.classList.add("is-open");
         this.b.style.overflow = "hidden";
     }

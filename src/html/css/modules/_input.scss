@@ -64,7 +64,7 @@ body.dark-mode {
     background: rgba(255, 0, 0, 0.3) !important;
 }
 .dolar-input_currency-container {
-    width: 16.666%;
+    width: 50px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -81,7 +81,7 @@ body.dark-mode .dolar-input_currency-container {
 }
 .dolar-input_input-container {
     height: 100%;
-    width: 65%;
+    width: calc(100% - 110px);
     input {
         height: 100%;
         width: 100%;
@@ -101,14 +101,8 @@ body.dark-mode .dolar-input_currency-container {
     line-height: 100%;
     font-weight: 300;
     height: 100%;
-    width: 18.33%;
+    width: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-@media only screen and (min-width: 700px) {
-    .dolar-input_container {
-        width: 300px;
-        margin: .8rem 0;
-    }
 }

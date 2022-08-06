@@ -99,7 +99,7 @@ var Home = /** @class */ (function () {
             a.className = "dolar-values_swap";
             var b = _this.d.createElement("span");
             b.className = "material-symbols-outlined";
-            b.innerHTML = "arrow_forward";
+            b.innerHTML = "&#xe5c8;";
             a.appendChild(b);
             return a;
         };
@@ -138,7 +138,7 @@ var Home = /** @class */ (function () {
             a.className = "dolar-exchange_swap";
             var b = _this.d.createElement("span");
             b.className = "material-symbols-outlined";
-            b.innerHTML = "swap_horiz";
+            b.innerHTML = "&#xe8d4;";
             a.appendChild(b);
             return a;
         };

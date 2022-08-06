@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.DataAPI = void 0;
 var DataAPI = /** @class */ (function () {
+    // dolarAntiguo: ResponseApiSingle
     function DataAPI(dolarActual) {
         this.dolar = dolarActual;
     }

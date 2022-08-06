@@ -21,17 +21,7 @@ export class Home {
             if (!b?.dolar.result) {
                 return;
             }
-<<<<<<< HEAD
             console.log(b?.dolar.success);
-=======
-            this.d.body.classList.add("data-fetched");
-            if (l) {
-                l.addEventListener("transitionend", () => {
-                    if (this.d.body.classList.contains("data-fetched")) l.remove();
-                    this.d.body.removeAttribute("style");
-                })
-            }
->>>>>>> 1a785b77d1ae88293425b30d89a76297ed1a9346
             return b.dolar as ResponseApiSingle;
         } catch (error) {
             console.log(error);
@@ -69,7 +59,7 @@ export class Home {
         a.className = "dolar-values_swap";
         const b = this.d.createElement("span");
         b.className = "material-symbols-outlined";
-        b.innerHTML = "arrow_forward";
+        b.innerHTML = "&#xe5c8;";
         a.appendChild(b);
         return a;
     }
@@ -108,7 +98,7 @@ export class Home {
         a.className = "dolar-exchange_swap";
         const b = this.d.createElement("span");
         b.className = "material-symbols-outlined";
-        b.innerHTML = "swap_horiz";
+        b.innerHTML = "&#xe8d4;";
         a.appendChild(b);
         return a;
     }

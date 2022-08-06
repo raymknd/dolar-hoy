@@ -35,7 +35,7 @@
         <nav class="dolar-nav">
             <a class="dolar-nav_icon menu-toggler" href="#" data-menu="open">
                 <span class="material-symbols-outlined">
-                    menu
+                    &#xe5d2;
                 </span>
             </a>
             <div class="dolar-nav_logo">
@@ -43,7 +43,7 @@
             </div>
             <a class="dolar-nav_icon right-side" href="#" data-settheme>
                 <span class="material-symbols-outlined">
-                    light_mode
+                    &#xe518;
                 </span>
             </a>
         </nav>
@@ -53,29 +53,71 @@
         </header>
     </div>
     <main class="dolar-wrapper">
-        <section class="dolar-wrapper_values">
-            <div class="dolar-wrapper_values-inner" id="js--currency-value">
-                <div class="dolar-values_container-skeleton"></div>
-                <!-- <div class="dolar-values_container">
-                    <div class="values-value"></div>
-                    <div class="values-currency"></div>
-                </div> -->
-                <div class="dolar-exchange_swap-skeleton is-small"></div>
-                <!-- <div class="dolar-values_swap">
-                    <span class="material-symbols-outlined">
-                        arrow_forward
-                    </span>
-                </div> -->
-                <div class="dolar-values_container-skeleton"></div>
+        <div class="dolar-wrapper_exchange-container">
+            <section class="dolar-wrapper_values">
+                <div class="dolar-wrapper_values-inner" id="js--currency-value">
+                    <div class="dolar-values_container-skeleton"></div>
+                    <div class="dolar-exchange_swap-skeleton is-small"></div>
+                    <div class="dolar-values_container-skeleton"></div>
+                </div>
+            </section>
+            <div class="dolar-wrapper_exchange-divider">
+                <figure class="line"></figure>
             </div>
-        </section>
-        <section class="dolar-wrapper_exchange" id="js--inputs-wrapper">
-            <div class="dolar-input_container-skeleton"></div>
-            <div class="dolar-exchange_swap-skeleton"></div>
-            <div class="dolar-input_container-skeleton"></div>
-        </section>
-        <section class="dolar-ad">
+            <section class="dolar-wrapper_exchange" id="js--inputs-wrapper">
+                <div class="dolar-input_container-skeleton"></div>
+                <div class="dolar-exchange_swap-skeleton"></div>
+                <div class="dolar-input_container-skeleton"></div>
+            </section>
+        </div>
+        <!-- <section class="dolar-ad">
             <div class="placeholder-sm">300x100</div>
+        </section> -->
+        <section class="dolar-about">
+            <h2>Preguntas sobre el dólar</h2>
+            <div class="dolar-about_section-grid">
+                <div class="dolar-about_section">
+                    <div class="section-icon">
+                        <span class="material-symbols-outlined">
+                            attach_money
+                        </span>
+                    </div>
+                    <h3 class="section-title">¿Qué es el dólar?</h3>
+                    <p>El dólar es la moneda de Estados Unidos y es una de las más utilizadas a nivel mundial, también es utilizada como instrumento de inversión.</p>
+                </div>
+                <div class="dolar-about_section">
+                    <div class="section-icon">
+                        <span class="material-symbols-outlined">
+                            savings
+                        </span>
+                    </div>
+                    <h3 class="section-title">¿Por qué se utiliza el dólar?</h3>
+                    <p>Por la fortaleza de Estados Unidos se ha respaldado esta moneda como de uso global. Fue establecido en 1944 y en un principio equivalía su peso en oro o plata.</p>
+                </div>
+            </div>
+            <div class="dolar-about_section">
+                <div class="section-icon">
+                    <span class="material-symbols-outlined">
+                        account_balance
+                    </span>
+                </div>
+                <h3 class="section-title">¿Por qué varía el dólar?</h3>
+                <p>Existen muchos factores que hacen que el dólar tenga variaciones dependiendo del país que nos encontramos. En el caso de Chile hay 4 factores claves:</p>
+                <ul>
+                    <li><strong>Balanza comercial:</strong> Diferencia entre importaciones y exportaciones. Si Chile exporta más, significa que llegan más dólares. En el caso de nuestro país, se asocia por el precio del cobre. Si el cobre baja o sube significa que entrarán menos o más dólares y por ende, el precio puede bajar o subir.</li>
+                    <li><strong>Tasas de interés</strong> a corto plazo entre Chile y Estados Unidos.</li>
+                    <li><strong>Cambios</strong> en la aversión al riesgo.</li>
+                    <li><strong>Tendencia</strong> mundial.</li>
+                </ul>
+                <p>Otros factores pueden deberse a la política, como el cambio del Gobierno o políticas que atraigan o no a inversionistas, las intervenciones del Banco Central de Chile, cambio de políticas en fondos de pensiones, venta o compra de dólares por parte del Estado.</p>
+            </div>
+            <div class="donde-cambiar_grid">
+                <div>
+                    <h2 class="donde-cambiar_title">¿Dónde se pueden cambiar dólares en Chile?</h2>
+                    <p>Puedes cambiar dólares en Bancos como también casas de cambio como Afex.</p>
+                </div>
+                <!-- <img src="static/giorgio-trovato-WyxqQpyFNk8-unsplash.jpeg" alt="Imagen dólar"> -->
+            </div>
         </section>
     </main>
     <div class="dolar-menu" id="js--menu">
@@ -84,26 +126,25 @@
             <a class="dolar-menu_content-link" data-menu="close" href="#"><span class="material-symbols-outlined close-icon">close</span></a>
             <a class="dolar-menu_content-link" href="/">Inicio</a>
             <a class="dolar-menu_content-link" href="/noticias">Noticias</a>
-            <a class="dolar-menu_content-link if-app-hidden" href="/app">App</a>
+            <a class="dolar-menu_content-link if-app-hidden" href="/quick-access">Quick Access</a>
         </div>
     </div>
     <footer class="dolar-footer">
-        <div class="dolar-footer_logo">
-            <img src="static/dolar-hoy-logo@2x.png" alt="Dolar hoy Logo">
+        <div class="dolar-footer_inner">
+            <div class="dolar-footer_logo">
+                <img src="static/dolar-hoy-logo@2x.png" alt="Dolar hoy Logo">
+            </div>
+            <h2 class="dolar-footer_title">Dólar Hoy</h2>
+            <div class="dolar-footer_sub">En <span id="js--web-or-app">este sitio web</span> puedes conocer el valor del dólar para el día de hoy. Puedes realizar la conversión de dólar a peso chileno y también al revés.</div>
+            <div class="dolar-footer_button-wrapper">
+                <a class="dolar-button elevation-medium dolar-footer_button" id="js--scroll-top" href="#">Convierte dólar a peso</a>
+            </div>
         </div>
-        <h2 class="dolar-footer_title">Dólar hoy</h2>
-        <div class="dolar-footer_sub">En <span id="js--web-or-app">este sitio web</span> puedes conocer el valor del dólar para el día de hoy. Puedes realizar la conversión de dólar a peso chileno y también al revés.</div>
-        <div class="dolar-footer_button-wrapper">
-            <a class="dolar-button elevation-medium dolar-footer_button" id="js--scroll-top" href="#">Convierte dólar a peso</a>
-        </div>
-        <div class="dolar-footer_line"></div>
-        <!-- <div class="dolar-footer_links">
-            <a class="dolar-footer_links--link" href="mailto:contacto@valordolarhoy.cl">Contacto</a>
-            <a class="dolar-footer_links--link" target="_blank" href="https://support.google.com/adsense/answer/1348695?hl=en">Privacidad</a>
-        </div> -->
         <div class="dolar-footer_dev">
-            <img src="static/pcbkn-logo-small.png" alt="PcBkn Logo">
-            <div class="dolar-footer_dev-info">Diseñado y desarrollado con &#60;3 por <a target="_blank" href="https://pcbkn.cl/">PcBkn</a> en Santiago, Chile.</div>
+            <div class="inner">
+                <img src="static/pcbkn-logo-small.png" alt="PcBkn Logo">
+            <div class="dolar-footer_dev-info">Diseñado y desarrollado con &#60;3 por&nbsp;<a target="_blank" href="https://pcbkn.cl/">PcBkn</a>&nbsp;en Santiago, Chile.</div>
+            </div>
         </div>
     </footer>
     <div class="dolar-toast" id="js--dolar-toast"> <div class="dolar-toast_inner"> </div> </div>

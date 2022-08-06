@@ -26,11 +26,11 @@ export class Theme {
                 e.preventDefault();
                 if(this.IsDark()) {
                     this.removeDarkMode();
-                    if(icon) icon.innerHTML = "dark_mode";
+                    if(icon) icon.innerHTML = "&#xe51c;";
                 }
                 else {
                     this.setDarkMode();
-                    if(icon) icon.innerHTML = "light_mode";
+                    if(icon) icon.innerHTML = "&#xe518;";
                 }
             })
         }

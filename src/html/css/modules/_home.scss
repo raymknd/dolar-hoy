@@ -38,8 +38,83 @@ main.dolar-wrapper {
         opacity: 0.8;
     }
 }
-.dolar-wrapper_values {
+.dolar-wrapper_exchange-container {
     margin-top: -50px;
+    @media only screen and (min-width: 720px) {
+        & {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 0.8fr 0.1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 0px;
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            background: white;
+            // background: url(static/corner-image.png) no-repeat left bottom/200px white;
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+        }
+    }
+}
+@media only screen and (min-width: 720px) {
+    .dolar-wrapper_values,
+    .dolar-wrapper_exchange {
+        background: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        margin-top: 0 !important;
+    }
+    .dolar-wrapper_values {
+        .dolar-values_container {
+            text-align: center;
+            margin: 0 1rem;
+            .values-value {
+                font-size: 30px !important;
+            }
+            .values-currency {
+                font-size: 20px !important;
+                font-weight: 300;
+            }
+        }
+    }
+    .dolar-wrapper_exchange-divider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        .line {
+            height: 100%;
+            width: 1.5px;
+            border-radius: 1px;
+            background: black;
+            opacity: 0.2;
+        }
+    }
+    .dolar-wrapper_exchange {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    // .donde-cambiar_grid {
+    //     width: 100%;
+    //     display: grid;
+    //     grid-template-columns: 0.5fr 1fr;
+    //     grid-template-rows: 1fr;
+    //     grid-column-gap: 30px;
+    //     grid-row-gap: 0px;
+    //     img {
+    //         height: 250px;
+    //         width: 100%;
+    //         object-fit: cover;
+    //         margin-top: 30px;
+    //         border-radius: 10px;
+    //     }
+    // }
+}
+.dolar-wrapper_values {
     background: white;
     border-radius: 10px;
     padding: 2rem;
@@ -124,6 +199,15 @@ main.dolar-wrapper {
     transition: background .2s linear;
 }
 body.dark-mode {
+    @media only screen and (min-width: 720px) {
+        .dolar-wrapper_exchange-container {
+            background: #2C2C2C;
+            .line {
+                background: white;
+            }
+            // background: url(static/corner-image.png) no-repeat 5% 80%/150px #2C2C2C;
+        }
+    }
     .dolar-wrapper_values,
     .dolar-wrapper_exchange {
         background: #2C2C2C;

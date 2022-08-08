@@ -32,7 +32,6 @@ if(window.matchMedia('(display-mode: standalone)').matches) {
 (async function() {
     try {
         home.getToday();
-        await home.getDolar();
         await home.getCurrency();
     } catch (error) {
         console.log(error)

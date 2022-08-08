@@ -14,6 +14,7 @@ export class Home {
         this.d = document;
         this.toast = new Toast("#js--dolar-toast");
         this.inputRoot = this.d.getElementById("js--inputs-wrapper");
+        
     }
     getDolar = async () => {
         try {
@@ -21,7 +22,6 @@ export class Home {
             if (!b?.dolar.result) {
                 return;
             }
-            console.log(b?.dolar.success);
             return b.dolar as ResponseApiSingle;
         } catch (error) {
             console.log(error);
@@ -156,11 +156,6 @@ export class Home {
         this.setInputs((f, s) => {
             const firstInput = this.d.getElementById(f) as HTMLInputElement;
             const secondInput = this.d.getElementById(s) as HTMLInputElement;
-            console.log(PARSED_USD);
-            // setTimeout(() => {
-            //     this.toast.info(formatter.format(PARSED_USD), 2000)
-            // }, 1000);
-
             if(firstInput && secondInput) {
                 firstInput.value = "1";
                 secondInput.value = formatter.format(PARSED_USD);

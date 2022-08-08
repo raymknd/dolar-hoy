@@ -4,10 +4,11 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build-dev": "tsc src/index.ts && webpack --config=webpack.config.dev.js",
-    "build": "tsc src/index.ts && webpack --config=webpack.config.prod.js",
+    "build-dev": "tsc src/Home.ts && tsc src/Noticias.ts && webpack --config=webpack.config.dev.js",
+    "build": "tsc src/Home.ts && tsc src/Noticias.ts && webpack --config=webpack.config.prod.js",
     "init": "npm i && npm run bundle",
-    "start": "tsc src/index.ts && webpack-dev-server --config=webpack.config.dev.js"
+    "start": "tsc src/Home.ts && tsc src/Noticias.ts && webpack-dev-server --config=webpack.config.dev.js",
+    "build-ts": "tsc src/Home.ts && tsc src/Noticias.ts"
   },
   "keywords": [],
   "author": "",
@@ -26,15 +27,18 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "sass": "^1.53.0",
     "sass-loader": "^7.0.0",
+    "scroll-behavior-polyfill": "^2.0.13",
     "style-loader": "^1.0.0",
     "terser-webpack-plugin": "^1.4.1",
     "typescript": "4.5.5",
+    "uuidv4": "^6.2.13",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "~3",
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "big.js": "^6.2.1"
+    "big.js": "^6.2.1",
+    "contentful": "^9.1.33"
   }
 }

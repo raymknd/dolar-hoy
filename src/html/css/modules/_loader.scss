@@ -1,46 +1,46 @@
-.dolar-loader {
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 999;
-    opacity: 100%;
-    visibility: visible;
-    transition: opacity .5s ease, visibility .5s ease;
-    color: white;
-}
-body.data-fetched .dolar-loader {
-    visibility: hidden;
-    opacity: 0%;
-}
-.dolar-loader_icon {
-    animation: loader_spin cubic-bezier(.36,1.97,.62,1) 4s infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    span {
-        font-size: 30px;
-    }
-}
-@keyframes loader_spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(180deg);
-    }
-    50% {
-        transform: rotate(180deg);
-    }
-    75% {
-        transform: rotate(360deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
+// .dolar-loader {
+//     height: 100vh;
+//     width: 100%;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background: rgba(0, 0, 0, 0.8);
+//     z-index: 999;
+//     opacity: 1;
+//     visibility: visible;
+//     transition: opacity .5s ease, visibility .5s ease;
+//     color: white;
+// }
+// body.data-fetched .dolar-loader {
+//     visibility: hidden;
+//     opacity: 0;
+// }
+// .dolar-loader_icon {
+//     animation: loader_spin cubic-bezier(.36,1.97,.62,1) 4s infinite;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     span {
+//         font-size: 30px;
+//     }
+// }
+// @keyframes loader_spin {
+//     0% {
+//         transform: rotate(0deg);
+//     }
+//     25% {
+//         transform: rotate(180deg);
+//     }
+//     50% {
+//         transform: rotate(180deg);
+//     }
+//     75% {
+//         transform: rotate(360deg);
+//     }
+//     100% {
+//         transform: rotate(360deg);
+//     }
+// }

@@ -1,0 +1,52 @@
+.dolar-toast {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;  
+    z-index: 50;
+    transform: translateY(50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform .3s ease, opacity .3s ease, visibility .3s ease;
+}
+.dolar-toast.is-open {
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+}
+.dolar-toast.is-success {
+    .dolar-toast_inner {
+        background: rgb(56, 142, 60);
+        color: white;
+    }
+}
+.dolar-toast.is-error {
+    .dolar-toast_inner {
+        background: rgb(211, 47, 47);
+        color: white;
+    }
+}
+.dolar-toast.is-warning {
+    .dolar-toast_inner {
+        background: rgb(245, 124, 0);
+        color: rgba(0, 0, 0, 0.87);
+    }
+}
+.dolar-toast.is-info {
+    .dolar-toast_inner {
+        background: rgb(2, 136, 209);
+        color: white;
+    }
+}
+.dolar-toast_inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+}
+.dolar-toast_message {
+    margin-left: 1rem;
+}

@@ -1,104 +1,274 @@
-.dolar-content_land-title {
-    font-size: 40px;
-    font-weight: 500;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-bottom: 1rem;
-}
-.dolar-content_land-date {
-    font-size: 20px;
-    font-weight: 500;
-    opacity: 50%;
-}
-.dolar-exchange-rate_title {
-    font-size: 23px;
-    font-weight: 500;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-}
-.dolar-exchange-rate_container {
-    padding: 0 0 1rem 0;
-}
-.dolar-exchange-rate_swap {
-    margin: .8rem auto;
-    user-select: none;
-    opacity: 50%;
-    transition: transform .5s ease;
-}
-.dolar-exchange-rate_swap.is-rotated {
-    transform: rotate(180deg);
-}
+$shadow-key-umbra-opacity:      0.20 !default;
+$shadow-key-penumbra-opacity:   0.14 !default;
+$shadow-ambient-shadow-opacity: 0.12 !default;
 
-.dolar-error {
-    text-align: center;
-    height: 100vh;
-    z-index: 1000;
+main.dolar-wrapper {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #cf6679;
+    max-width: 1000px;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+    z-index: 10;
+}
+.dolar-home_background,
+.dolar-home_header {
+    height: 380px;
+    width: 100%;
+}
+.dolar-home_header {
+    position: relative;
     color: white;
-    position: fixed;
+}
+.dolar-wrapper_header-text {
+    width: 84.8%;
+    color: white;
+    z-index: 99;
+    margin: 0 auto;
+}
+.dolar-home_background {
+    position: absolute;
     top: 0;
     left: 0;
-    padding: 2rem;
-    .dolar-error_icon {
+    background: #879AA5 url(/static/sharon-mccutcheon-8lnbXtxFGZw-unsplash.jpeg) center center/cover no-repeat;
+    filter: brightness(40%);
+    z-index: -1;
+}
+.dolar-wrapper_header {
+    margin: 0 auto;
+    h2 {
+        opacity: 0.8;
+    }
+}
+.dolar-wrapper_exchange-container {
+    margin-top: -50px;
+    @media only screen and (min-width: 720px) {
+        & {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 0.8fr 0.1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 0px;
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            background: white;
+            // background: url(static/corner-image.png) no-repeat left bottom/200px white;
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+        }
+    }
+}
+@media only screen and (min-width: 720px) {
+    .dolar-wrapper_values,
+    .dolar-wrapper_exchange {
+        background: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        margin-top: 0 !important;
+    }
+    .dolar-wrapper_values {
+        .dolar-values_container {
+            text-align: center;
+            margin: 0 1rem;
+            .values-value {
+                font-size: 30px !important;
+            }
+            .values-currency {
+                font-size: 20px !important;
+                font-weight: 300;
+            }
+        }
+    }
+    .dolar-wrapper_exchange-divider {
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100%;
         width: 100%;
-        span {
-            font-size: 200%;
+        .line {
+            height: 100%;
+            width: 1.5px;
+            border-radius: 1px;
+            background: black;
+            opacity: 0.2;
         }
     }
-    .dolar-error_title {
-        font-size: 200%;
-        margin: .5rem 0;
+    .dolar-wrapper_exchange {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
     }
-    .dolar-error_tryagain {
-        font-size: 120%;
-        opacity: 70%;
-    }
+    // .donde-cambiar_grid {
+    //     width: 100%;
+    //     display: grid;
+    //     grid-template-columns: 0.5fr 1fr;
+    //     grid-template-rows: 1fr;
+    //     grid-column-gap: 30px;
+    //     grid-row-gap: 0px;
+    //     img {
+    //         height: 250px;
+    //         width: 100%;
+    //         object-fit: cover;
+    //         margin-top: 30px;
+    //         border-radius: 10px;
+    //     }
+    // }
 }
-.dolar-current-value_container {
+.dolar-wrapper_values {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2rem auto 0 auto;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+    .dolar-wrapper_values-inner {
+        display: flex;
+        align-items: center;
+        .dolar-values_container-skeleton {
+            position: relative;
+            overflow: hidden;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.1);
+            margin: 0 1rem;
+            &::after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                transform: translateX(-100%);
+                background-image: linear-gradient(
+                90deg,
+                rgba(#000, 0) 0,
+                rgba(#000, 0.1) 20%,
+                rgba(#000, 0.2) 60%,
+                rgba(#000, 0)
+                );
+                border-radius: 10px;
+                animation: shimmer 1.5s infinite;
+                content: '';
+            }
+            
+            @keyframes shimmer {
+                70% {
+                    opacity: 0;
+                }
+                100% {
+                transform: translateX(100%);
+                opacity: 0;
+                }
+            }
+        }
+        .dolar-values_container {
+            text-align: center;
+            margin: 0 1rem;
+            .values-value {
+                font-size: 25px;
+            }
+            .values-currency {
+                font-size: 15px;
+                font-weight: 300;
+            }
+        }
+        .dolar-values_swap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0.5rem;
+        }
+    }
 }
-.dolar-current-value_currency {
-    text-align: center;
+.dolar-wrapper_exchange {
+    margin-top: 30px;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+    
 }
-.dolar-current-value_currency-number {
-    font-size: 25px;
+.dolar-exchange_swap-skeleton,
+.dolar-wrapper_exchange,
+.dolar-wrapper_values {
+    transition: background .2s linear;
 }
-.dolar-current-value_currency-currency {
-    font-size: 15px;
-    font-weight: 300;
+body.dark-mode {
+    @media only screen and (min-width: 720px) {
+        .dolar-wrapper_exchange-container {
+            background: #2C2C2C;
+            .line {
+                background: white;
+            }
+            // background: url(static/corner-image.png) no-repeat 5% 80%/150px #2C2C2C;
+        }
+    }
+    .dolar-wrapper_values,
+    .dolar-wrapper_exchange {
+        background: #2C2C2C;
+    }
+    .dolar-wrapper_values-inner {
+        .dolar-values_container-skeleton {
+            background: rgba(255, 255, 255, 0.1);
+            &::after {
+                background-image: linear-gradient(
+                90deg,
+                rgba(#fff, 0) 0,
+                rgba(#fff, 0.1) 20%,
+                rgba(#fff, 0.2) 60%,
+                rgba(#fff, 0)
+                );
+            }
+        }
+    }
+    .dolar-exchange_swap-skeleton {
+        background: rgba(255, 255, 255, 0.1);
+    }
 }
-.dolar-current-value_separator {
-    margin: 0 1rem;
-}
-.dolar-current-value-inner {
+.dolar-exchange_swap {
+    margin: 0.2rem auto;
     display: flex;
+    justify-content: center;
     align-items: center;
-}
-@media only screen and (min-width: 650px) {
-    .dolar-exchange-rate_inputs {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-    }
-    .dolar-exchange-rate_inputs-inner {
-        display: flex;
-        align-items: center;
-    }
-    .dolar-exchange-rate_swap {
+    span {
         transform: rotate(90deg);
-        margin: 0 1.5rem;
+        opacity: 0.5;
+    }
+}
+.dolar-exchange_swap-skeleton.is-small {
+    margin: 0 0.5rem !important;
+    width: 30px;
+    height: 30px;
+}
+.dolar-exchange_swap-skeleton {
+    margin: 0.2rem auto;
+    height: 35px;
+    width: 35px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    animation: skeleton 1.5s infinite;
+    @keyframes skeleton {
+        0% {
+            opacity: 0.5;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0.5;
+        }
+    }
+}
+.dolar-wrapper_about {
+    margin-top: 2rem;
+    p {
+        margin-bottom: 1.5rem;
+        font-size: 18px;
+        line-height: 22px;
     }
 }

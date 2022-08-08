@@ -1,0 +1,31 @@
+{
+    "short_name": "Dólar Hoy",
+    "name": "Dólar Hoy",
+    "icons": [
+      {
+        "src": "/static/dolar-icon-128.png",
+        "type": "image/png",
+        "sizes": "128x128"
+      },
+      {
+        "src": "/static/dolar-icon-152.png",
+        "type": "image/png",
+        "sizes": "152x152"
+      },
+      {
+        "src": "/static/dolar-icon-256.png",
+        "type": "image/png",
+        "sizes": "256x256"
+      },
+      {
+        "src": "/static/dolar-icon-512.png",
+        "type": "image/png",
+        "sizes": "152x152"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#c75d5e",
+    "display": "standalone",
+    "theme_color": "#c75d5e",
+    "description": "Conoce el valor del dólar para el día de hoy. Puedes realizar la conversión de dólar a peso chileno y también al revés."
+  }

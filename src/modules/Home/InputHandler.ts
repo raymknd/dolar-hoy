@@ -1,4 +1,4 @@
-import Currency from "./Currency";
+import Currency from "../Global/Currency";
 
 function ClearInvalid(f?: HTMLElement, s?: HTMLElement) {
     if(f && s) {

@@ -42,6 +42,8 @@ var Theme_1 = require("./modules/Global/Theme");
 var Home_1 = require("./modules/Home/Home");
 var Toast_1 = require("./modules/Global/Toast");
 require("scroll-behavior-polyfill");
+var Preload_1 = require("./modules/Global/Preload");
+var preload = new Preload_1.Preload();
 var themeHandler = new Theme_1.Theme();
 themeHandler.listen();
 var menu = new Menu_1.Menu(document.getElementById("js--menu"));
@@ -67,7 +69,7 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 3, , 4]);
+                    _a.trys.push([0, 4, , 5]);
                     home.getToday();
                     return [4 /*yield*/, home.getDolar()];
                 case 1:
@@ -75,13 +77,18 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
                     return [4 /*yield*/, home.getCurrency()];
                 case 2:
                     _a.sent();
-                    return [3 /*break*/, 4];
+                    return [4 /*yield*/, preload.preload(["/static/flag-chile.svg", "/static/flag-usa.svg"]).then(function (u) {
+                            console.log("Preloaded:", u);
+                        })];
                 case 3:
+                    _a.sent();
+                    return [3 /*break*/, 5];
+                case 4:
                     error_1 = _a.sent();
                     console.log(error_1);
                     toast.error("Hubo un error, lamentamos las molestias, vuelve a intentar más tarde.", 3500);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
             }
         });
     });

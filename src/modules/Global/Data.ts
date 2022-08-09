@@ -25,16 +25,6 @@ export class DataAPI {
     }
     static getDolar = async (quote?: string, amount: number = 1) => {
         try {
-            // const headers: HeadersInit = {
-            //     'Content-Type': 'application/json',
-            //     'X-Request-Id': uuidv4(),
-            //     'apiKey': `rM3wN2LfB36rnoJsv2R5aNxXkSr2fVKd`
-            //   }
-            // const opts: RequestInit = {
-            //     method: 'GET',
-            //     headers,
-            //   };
-
             const a = await fetch(`https://bffdolar.herokuapp.com/api/currency/get-data`)
             const json = await a.json();
             const dolar: ResponseApiSingle = json;

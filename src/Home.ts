@@ -35,7 +35,6 @@ if(window.matchMedia('(display-mode: standalone)').matches) {
 (async function() {
     try {
         home.getToday();
-        await home.getDolar();
         await home.getCurrency();
         await preload.preload(["/static/flag-chile.svg", "/static/flag-usa.svg"]).then((u) => {
             console.log("Preloaded:", u)
